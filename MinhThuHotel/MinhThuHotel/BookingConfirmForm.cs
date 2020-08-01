@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MinhThuHotel
 {
-    public partial class Form1 : Form
+    public partial class BookingConfirmForm : Form
     {
-        public Form1()
+        public BookingConfirmForm()
         {
             InitializeComponent();
         }
