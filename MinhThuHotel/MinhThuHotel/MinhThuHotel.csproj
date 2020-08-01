@@ -60,11 +60,36 @@
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\Room.cs" />
     <Compile Include="Data\RoomType.cs" />
+    <Compile Include="Data\Services.cs" />
+    <Compile Include="ListCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListCustomerForm.Designer.cs">
+      <DependentUpon>ListCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentCheckForm.Designer.cs">
+      <DependentUpon>PaymentCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentConfirmForm.Designer.cs">
+      <DependentUpon>PaymentConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,8 +100,20 @@
     <EmbeddedResource Include="BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListCustomerForm.resx">
+      <DependentUpon>ListCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentCheckForm.resx">
+      <DependentUpon>PaymentCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentConfirmForm.resx">
+      <DependentUpon>PaymentConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +134,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

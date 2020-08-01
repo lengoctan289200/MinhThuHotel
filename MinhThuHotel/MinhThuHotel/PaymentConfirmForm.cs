@@ -9,24 +9,24 @@ using System.Windows.Forms;
 
 namespace MinhThuHotel
 {
-    public partial class BookingConfirmForm : Form
+    public partial class PaymentConfirmForm : Form
     {
-        public BookingConfirmForm()
+        public PaymentConfirmForm()
         {
             InitializeComponent();
-        }
-
-        private void btnBookingPage_Click(object sender, EventArgs e)
-        {
-            BookingForm bookingForm = new BookingForm();
-            bookingForm.Show();
-            this.Hide();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
             MenuForm mn = new MenuForm();
             mn.Show();
+            this.Hide();
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm();
+            paymentForm.Show();
             this.Hide();
         }
     }

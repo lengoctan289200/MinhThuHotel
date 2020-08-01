@@ -18,7 +18,9 @@ namespace MinhThuHotel
 
         private void btnList_Click(object sender, EventArgs e)
         {
-
+            ListCustomerForm listForm = new ListCustomerForm();
+            listForm.Show();
+            this.Hide();
         }
 
         private void btnBooking_Click(object sender, EventArgs e)
@@ -29,7 +31,9 @@ namespace MinhThuHotel
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-
+            PaymentForm paymentForm = new PaymentForm();
+            paymentForm.Show();
+            this.Hide();
         }
 
     }

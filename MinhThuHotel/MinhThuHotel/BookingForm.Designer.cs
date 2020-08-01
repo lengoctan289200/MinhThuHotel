@@ -52,10 +52,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(176, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(66, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1561, 181);
+            this.label1.Size = new System.Drawing.Size(629, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông Tin Đặt Phòng";
             // 
@@ -63,29 +62,26 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(459, 269);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(172, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 61);
+            this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Họ Tên:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(683, 269);
-            this.txtName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtName.Location = new System.Drawing.Point(256, 113);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(615, 38);
+            this.txtName.Size = new System.Drawing.Size(233, 20);
             this.txtName.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(459, 398);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Location = new System.Drawing.Point(172, 167);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(199, 61);
+            this.label6.Size = new System.Drawing.Size(78, 23);
             this.label6.TabIndex = 6;
             this.label6.Text = "CMND:";
             // 
@@ -93,10 +89,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(525, 525);
-            this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label7.Location = new System.Drawing.Point(197, 220);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 61);
+            this.label7.Size = new System.Drawing.Size(53, 23);
             this.label7.TabIndex = 7;
             this.label7.Text = "SĐT:";
             // 
@@ -104,10 +99,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(224, 649);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Location = new System.Drawing.Point(84, 272);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(433, 61);
+            this.label3.Size = new System.Drawing.Size(166, 23);
             this.label3.TabIndex = 8;
             this.label3.Text = "Ngày Nhận Phòng:";
             // 
@@ -115,10 +109,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 780);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Location = new System.Drawing.Point(101, 327);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(389, 61);
+            this.label4.Size = new System.Drawing.Size(149, 23);
             this.label4.TabIndex = 9;
             this.label4.Text = "Ngày Trả Phòng:";
             // 
@@ -135,54 +128,48 @@
             // 
             // txtIdentification
             // 
-            this.txtIdentification.Location = new System.Drawing.Point(683, 398);
-            this.txtIdentification.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtIdentification.Location = new System.Drawing.Point(256, 167);
             this.txtIdentification.Name = "txtIdentification";
-            this.txtIdentification.Size = new System.Drawing.Size(495, 38);
+            this.txtIdentification.Size = new System.Drawing.Size(188, 20);
             this.txtIdentification.TabIndex = 12;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(683, 525);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtPhone.Location = new System.Drawing.Point(256, 220);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(337, 38);
+            this.txtPhone.Size = new System.Drawing.Size(129, 20);
             this.txtPhone.TabIndex = 13;
             // 
             // dateTimePickerCheckIn
             // 
-            this.dateTimePickerCheckIn.Location = new System.Drawing.Point(683, 649);
-            this.dateTimePickerCheckIn.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dateTimePickerCheckIn.Location = new System.Drawing.Point(256, 272);
             this.dateTimePickerCheckIn.Name = "dateTimePickerCheckIn";
-            this.dateTimePickerCheckIn.Size = new System.Drawing.Size(527, 38);
+            this.dateTimePickerCheckIn.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCheckIn.TabIndex = 14;
             // 
             // dateTimePickerCheckOut
             // 
-            this.dateTimePickerCheckOut.Location = new System.Drawing.Point(685, 780);
-            this.dateTimePickerCheckOut.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dateTimePickerCheckOut.Location = new System.Drawing.Point(257, 327);
             this.dateTimePickerCheckOut.Name = "dateTimePickerCheckOut";
-            this.dateTimePickerCheckOut.Size = new System.Drawing.Size(527, 38);
+            this.dateTimePickerCheckOut.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCheckOut.TabIndex = 15;
             // 
             // cbxRoomType
             // 
-            this.cbxRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRoomType.FormattingEnabled = true;
-            this.cbxRoomType.Location = new System.Drawing.Point(683, 909);
-            this.cbxRoomType.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.cbxRoomType.Name = "cbxRoomType";
-            this.cbxRoomType.Size = new System.Drawing.Size(215, 39);
-            this.cbxRoomType.TabIndex = 16;
-            this.cbxRoomType.SelectedIndexChanged += new System.EventHandler(this.cbxRoomType_SelectedIndexChanged);
+            this.cbxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRoom.FormattingEnabled = true;
+            this.cbxRoom.Location = new System.Drawing.Point(683, 909);
+            this.cbxRoom.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cbxRoom.Name = "cbxRoom";
+            this.cbxRoom.Size = new System.Drawing.Size(215, 39);
+            this.cbxRoom.TabIndex = 16;
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(1248, 1054);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCancel.Location = new System.Drawing.Point(468, 442);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(427, 126);
+            this.btnCancel.Size = new System.Drawing.Size(160, 53);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -191,10 +178,9 @@
             // btnBooking
             // 
             this.btnBooking.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooking.Location = new System.Drawing.Point(362, 1054);
-            this.btnBooking.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnBooking.Location = new System.Drawing.Point(136, 442);
             this.btnBooking.Name = "btnBooking";
-            this.btnBooking.Size = new System.Drawing.Size(427, 126);
+            this.btnBooking.Size = new System.Drawing.Size(160, 53);
             this.btnBooking.TabIndex = 18;
             this.btnBooking.Text = "Đặt Phòng";
             this.btnBooking.UseVisualStyleBackColor = true;
@@ -203,10 +189,9 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(805, 1054);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnClear.Location = new System.Drawing.Point(302, 442);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(427, 126);
+            this.btnClear.Size = new System.Drawing.Size(160, 53);
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "Làm mới";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -235,12 +220,9 @@
             // 
             // BookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1989, 1209);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cbxRoom);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnBooking);
             this.Controls.Add(this.btnCancel);
@@ -257,9 +239,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "BookingForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
