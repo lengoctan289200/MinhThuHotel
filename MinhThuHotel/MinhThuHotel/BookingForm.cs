@@ -84,10 +84,10 @@ namespace MinhThuHotel
                 //cmd.Parameters.AddWithValue("@roomID", Room);
                 //cmd.Parameters.AddWithValue("@paymentStatus", false);
 
-                cmd.Parameters.Add("@cusID", OleDbType.Integer).Value = 1;
-                cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = "1"/*name*/;
-                cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = "1"/*ID*/;
-                cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = "1"/*phone*/;
+                cmd.Parameters.Add("@cusID", OleDbType.Integer).Value = bookingID;
+                cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
+                cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
+                cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
                 cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
                 cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
                 cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
@@ -99,6 +99,8 @@ namespace MinhThuHotel
                 }
 
             }
+            return false;
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -112,6 +114,14 @@ namespace MinhThuHotel
             BookingConfirmForm confirmForm = new BookingConfirmForm();
             confirmForm.Show();
             this.Hide();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "";
+            txtIdentification.Text = "";
+            txtPhone.Text = "";
+            txtName.Focus();
         }
     }
 }
