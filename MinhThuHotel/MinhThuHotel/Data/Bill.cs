@@ -13,7 +13,7 @@ namespace MinhThuHotel.Data
         protected DateTime checkOutDate;
         protected double total;
         protected double cusMoney;
-        protected double change;
+        protected double change;        
 
         public string BillID { get { return billID; } set { billID = value; } }
         public string CusID { get { return cusID; } set { cusID = value; } }

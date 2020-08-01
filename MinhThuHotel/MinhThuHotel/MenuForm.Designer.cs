@@ -87,7 +87,7 @@
             this.Controls.Add(this.btnBooking);
             this.Controls.Add(this.label1);
             this.Name = "MenuForm";
-            this.Text = "Minh Thu Hotel";
+            this.Text = "Minh Thư Hotel";
             this.ResumeLayout(false);
             this.PerformLayout();
 

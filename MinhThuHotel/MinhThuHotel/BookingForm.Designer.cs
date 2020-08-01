@@ -211,7 +211,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BookingForm";
-            this.Text = "BookingForm";
+            this.Text = "Thông Tin Đặt Phòng";
             this.ResumeLayout(false);
             this.PerformLayout();
 

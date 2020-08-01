@@ -71,7 +71,7 @@
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
             this.Name = "BookingConfirmForm";
-            this.Text = "BookingConfirmForm";
+            this.Text = "Xác Nhận Đặt Phòng";
             this.ResumeLayout(false);
             this.PerformLayout();
 
