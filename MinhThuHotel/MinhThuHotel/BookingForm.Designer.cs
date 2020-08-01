@@ -40,10 +40,12 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.dateTimePickerCheckIn = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerCheckOut = new System.Windows.Forms.DateTimePicker();
-            this.cbxRoom = new System.Windows.Forms.ComboBox();
+            this.cbxRoomType = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnBooking = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.cbxRoom = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -124,12 +126,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(483, 909);
+            this.label5.Location = new System.Drawing.Point(351, 909);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 61);
+            this.label5.Size = new System.Drawing.Size(302, 61);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Phòng:";
+            this.label5.Text = " Loại Phòng:";
             // 
             // txtIdentification
             // 
@@ -163,15 +165,16 @@
             this.dateTimePickerCheckOut.Size = new System.Drawing.Size(527, 38);
             this.dateTimePickerCheckOut.TabIndex = 15;
             // 
-            // cbxRoom
+            // cbxRoomType
             // 
-            this.cbxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRoom.FormattingEnabled = true;
-            this.cbxRoom.Location = new System.Drawing.Point(683, 909);
-            this.cbxRoom.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.cbxRoom.Name = "cbxRoom";
-            this.cbxRoom.Size = new System.Drawing.Size(215, 39);
-            this.cbxRoom.TabIndex = 16;
+            this.cbxRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRoomType.FormattingEnabled = true;
+            this.cbxRoomType.Location = new System.Drawing.Point(683, 909);
+            this.cbxRoomType.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cbxRoomType.Name = "cbxRoomType";
+            this.cbxRoomType.Size = new System.Drawing.Size(215, 39);
+            this.cbxRoomType.TabIndex = 16;
+            this.cbxRoomType.SelectedIndexChanged += new System.EventHandler(this.cbxRoomType_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -183,6 +186,7 @@
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnBooking
             // 
@@ -194,6 +198,7 @@
             this.btnBooking.TabIndex = 18;
             this.btnBooking.Text = "Đặt Phòng";
             this.btnBooking.UseVisualStyleBackColor = true;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // btnClear
             // 
@@ -205,16 +210,41 @@
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "Làm mới";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // cbxRoom
+            // 
+            this.cbxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRoom.FormattingEnabled = true;
+            this.cbxRoom.Location = new System.Drawing.Point(1133, 909);
+            this.cbxRoom.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cbxRoom.Name = "cbxRoom";
+            this.cbxRoom.Size = new System.Drawing.Size(215, 39);
+            this.cbxRoom.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(939, 909);
+            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(178, 61);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Phòng:";
             // 
             // BookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1989, 1209);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cbxRoom);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnBooking);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.cbxRoom);
+            this.Controls.Add(this.cbxRoomType);
             this.Controls.Add(this.dateTimePickerCheckOut);
             this.Controls.Add(this.dateTimePickerCheckIn);
             this.Controls.Add(this.txtPhone);
@@ -229,6 +259,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "BookingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,9 +280,11 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.DateTimePicker dateTimePickerCheckIn;
         private System.Windows.Forms.DateTimePicker dateTimePickerCheckOut;
-        private System.Windows.Forms.ComboBox cbxRoom;
+        private System.Windows.Forms.ComboBox cbxRoomType;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnBooking;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ComboBox cbxRoom;
+        private System.Windows.Forms.Label label8;
     }
 }

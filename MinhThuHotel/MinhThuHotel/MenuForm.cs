@@ -23,12 +23,14 @@ namespace MinhThuHotel
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingForm"), new object[] { });
+            form.ShowDialog();
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }
