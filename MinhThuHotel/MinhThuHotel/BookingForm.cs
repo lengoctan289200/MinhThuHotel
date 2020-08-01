@@ -74,15 +74,6 @@ namespace MinhThuHotel
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
 
-                //cmd.Parameters.AddWithValue("@cusID", count);
-                //cmd.Parameters.AddWithValue("@cusName", name);
-                //cmd.Parameters.AddWithValue("@Identification", ID);
-                //cmd.Parameters.AddWithValue("@phoneNumb", phone);
-                //cmd.Parameters.AddWithValue("@checkInDate", chkIn);
-                //cmd.Parameters.AddWithValue("@checkOutDate", chkOut);
-                //cmd.Parameters.AddWithValue("@roomID", Room);
-                //cmd.Parameters.AddWithValue("@paymentStatus", false);
-
                 cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
                 cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
                 cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
@@ -114,9 +105,6 @@ namespace MinhThuHotel
             {
                 Close();
             }
-            //BookingConfirmForm confirmForm = new BookingConfirmForm();
-            //confirmForm.Show();
-            //this.Hide();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
