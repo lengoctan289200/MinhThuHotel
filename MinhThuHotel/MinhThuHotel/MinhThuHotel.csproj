@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Bill.cs" />
+    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\Room.cs" />
+    <Compile Include="Data\RoomType.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
