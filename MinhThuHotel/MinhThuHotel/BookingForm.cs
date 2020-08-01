@@ -52,7 +52,6 @@ namespace MinhThuHotel
                 Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
             }
         }
-        int count = 1;
         private bool insertBooking()
         {
             OleDbConnection con = null;
@@ -84,7 +83,7 @@ namespace MinhThuHotel
                 //cmd.Parameters.AddWithValue("@roomID", Room);
                 //cmd.Parameters.AddWithValue("@paymentStatus", false);
 
-                cmd.Parameters.Add("@cusID", OleDbType.Integer).Value = bookingID;
+                cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
                 cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
                 cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
                 cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
@@ -94,7 +93,6 @@ namespace MinhThuHotel
                 cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
                 if (cmd.ExecuteNonQuery() != 0)
                 {
-                    count++;
                     return true;
                 }
 
@@ -111,9 +109,14 @@ namespace MinhThuHotel
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            BookingConfirmForm confirmForm = new BookingConfirmForm();
-            confirmForm.Show();
-            this.Hide();
+            bool check = insertBooking();
+            if (check)
+            {
+                Close();
+            }
+            //BookingConfirmForm confirmForm = new BookingConfirmForm();
+            //confirmForm.Show();
+            //this.Hide();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -122,6 +125,32 @@ namespace MinhThuHotel
             txtIdentification.Text = "";
             txtPhone.Text = "";
             txtName.Focus();
+        }
+
+        private void cbxRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable roomTable = new DataTable();
+
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "'";
+                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
+                    adapter2.Fill(roomTable);
+
+                    cbxRoom.DataSource = roomTable;
+                    cbxRoom.DisplayMember = "roomID";
+                    cbxRoom.ValueMember = "roomID";
+                }
+
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
+            }
         }
     }
 }
