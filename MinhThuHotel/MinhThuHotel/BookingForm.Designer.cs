@@ -119,10 +119,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(351, 909);
+            this.label5.Location = new System.Drawing.Point(483, 909);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(302, 61);
+            this.label5.Size = new System.Drawing.Size(178, 61);
             this.label5.TabIndex = 10;
             this.label5.Text = " Loại Phòng:";
             // 
