@@ -100,55 +100,5 @@ namespace MinhThuHotel
 
             }
 
-            //}catch(OleDbException ex)
-            //{
-            //    Console.WriteLine("Error: BookingForm _ insertBooking() _ OleDbException: " + ex.Message);
-            //}
-            return false;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtName.Text = "";
-            txtIdentification.Text = "";
-            txtPhone.Text = "";
-            txtName.Focus();
-        }
-
-        private void cbxRoomType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable roomTable = new DataTable();
-
-            OleDbConnection con = null;
-            try
-            {
-                con = DBHelper.OpenAccessConnection();
-                if (con != null)
-                {
-                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "'";
-                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
-                    adapter2.Fill(roomTable);
-
-                    cbxRoom.DataSource = roomTable;
-                    cbxRoom.DisplayMember = "roomID";
-                    cbxRoom.ValueMember = "roomID";
-                }
-
-            }
-            catch (OleDbException ex)
-            {
-                Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
-            }
-        }
-
-        private void btnBooking_Click(object sender, EventArgs e)
-        {
-            bool result = insertBooking();
-        }
     }
 }
