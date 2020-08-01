@@ -9,18 +9,11 @@ using System.Windows.Forms;
 
 namespace MinhThuHotel
 {
-    public partial class PaymentForm : Form
+    public partial class ListCustomerForm : Form
     {
-        public PaymentForm()
+        public ListCustomerForm()
         {
             InitializeComponent();
-        }
-
-        private void btnPayment_Click(object sender, EventArgs e)
-        {
-            PaymentCheckForm confirmForm = new PaymentCheckForm();
-            confirmForm.Show();
-            this.Hide();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

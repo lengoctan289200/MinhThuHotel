@@ -15,5 +15,19 @@ namespace MinhThuHotel
         {
             InitializeComponent();
         }
+
+        private void btnBookingPage_Click(object sender, EventArgs e)
+        {
+            BookingForm bookingForm = new BookingForm();
+            bookingForm.Show();
+            this.Hide();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            MenuForm mn = new MenuForm();
+            mn.Show();
+            this.Hide();
+        }
     }
 }

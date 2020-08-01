@@ -38,42 +38,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(49, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(746, 77);
+            this.label1.Size = new System.Drawing.Size(300, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đặt Phòng Thành Công!";
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(533, 217);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnMenu.Location = new System.Drawing.Point(200, 91);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(344, 107);
+            this.btnMenu.Size = new System.Drawing.Size(129, 45);
             this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "Quay lại Trang Chủ";
             this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnBookingPage
             // 
-            this.btnBookingPage.Location = new System.Drawing.Point(144, 217);
-            this.btnBookingPage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnBookingPage.Location = new System.Drawing.Point(54, 91);
             this.btnBookingPage.Name = "btnBookingPage";
-            this.btnBookingPage.Size = new System.Drawing.Size(344, 107);
+            this.btnBookingPage.Size = new System.Drawing.Size(129, 45);
             this.btnBookingPage.TabIndex = 2;
             this.btnBookingPage.Text = "Tiếp tục Đặt Phòng";
             this.btnBookingPage.UseVisualStyleBackColor = true;
+            this.btnBookingPage.Click += new System.EventHandler(this.btnBookingPage_Click);
             // 
             // BookingConfirmForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 417);
+            this.ClientSize = new System.Drawing.Size(389, 175);
             this.Controls.Add(this.btnBookingPage);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "BookingConfirmForm";
             this.Text = "Xác Nhận Đặt Phòng";
             this.ResumeLayout(false);
