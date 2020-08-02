@@ -71,6 +71,10 @@
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(405, 191);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(405, 191);
             this.Name = "PaymentConfirmForm";
             this.Text = "PaymentConfirmForm";
             this.ResumeLayout(false);

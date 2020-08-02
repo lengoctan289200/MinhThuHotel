@@ -247,6 +247,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnCancel);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(454, 393);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(454, 393);
             this.Name = "PaymentCheckForm";
             this.Text = "Xác nhận Thanh Toán";
             this.panel1.ResumeLayout(false);

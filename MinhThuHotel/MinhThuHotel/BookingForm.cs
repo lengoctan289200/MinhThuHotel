@@ -84,7 +84,7 @@ namespace MinhThuHotel
                 cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
                 if (cmd.ExecuteNonQuery() != 0)
                 {
-                    return true;
+                    return true; 
                 }
 
             }

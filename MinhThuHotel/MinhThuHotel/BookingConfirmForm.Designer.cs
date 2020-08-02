@@ -72,6 +72,10 @@
             this.Controls.Add(this.btnBookingPage);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(405, 214);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(405, 214);
             this.Name = "BookingConfirmForm";
             this.Text = "Xác Nhận Đặt Phòng";
             this.ResumeLayout(false);
