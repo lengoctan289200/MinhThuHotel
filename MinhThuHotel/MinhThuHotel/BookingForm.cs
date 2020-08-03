@@ -100,8 +100,7 @@ namespace MinhThuHotel
         {
             bool check = insertBooking();
             if (check)
-            {
-                Close();
+            {     
                 Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
                 form.ShowDialog();
             }

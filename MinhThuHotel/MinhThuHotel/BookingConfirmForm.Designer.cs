@@ -30,7 +30,6 @@
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.btnBookingPage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -44,23 +43,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Đặt Phòng Thành Công!";
             // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(200, 91);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(129, 45);
-            this.btnMenu.TabIndex = 1;
-            this.btnMenu.Text = "Quay lại Trang Chủ";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // btnBookingPage
             // 
-            this.btnBookingPage.Location = new System.Drawing.Point(54, 91);
+            this.btnBookingPage.Location = new System.Drawing.Point(66, 91);
             this.btnBookingPage.Name = "btnBookingPage";
-            this.btnBookingPage.Size = new System.Drawing.Size(129, 45);
+            this.btnBookingPage.Size = new System.Drawing.Size(267, 72);
             this.btnBookingPage.TabIndex = 2;
-            this.btnBookingPage.Text = "Tiếp tục Đặt Phòng";
+            this.btnBookingPage.Text = "Xác nhận";
             this.btnBookingPage.UseVisualStyleBackColor = true;
             this.btnBookingPage.Click += new System.EventHandler(this.btnBookingPage_Click);
             // 
@@ -70,13 +59,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 175);
             this.Controls.Add(this.btnBookingPage);
-            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(405, 214);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(405, 214);
             this.Name = "BookingConfirmForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác Nhận Đặt Phòng";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -87,7 +76,6 @@
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button btnBookingPage;
     }
 }

@@ -41,7 +41,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(480, 73);
             this.label1.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.panel1.Controls.Add(this.btnBooking);
             this.panel1.Controls.Add(this.btnList);
             this.panel1.Controls.Add(this.btnPayment);
-            this.panel1.Location = new System.Drawing.Point(69, 85);
+            this.panel1.Location = new System.Drawing.Point(81, 131);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(370, 330);
             this.panel1.TabIndex = 4;
@@ -96,13 +96,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 415);
+            this.ClientSize = new System.Drawing.Size(521, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(513, 454);
+            this.MaximumSize = new System.Drawing.Size(537, 546);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(513, 454);
+            this.MinimumSize = new System.Drawing.Size(537, 546);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minh Thu Hotel";

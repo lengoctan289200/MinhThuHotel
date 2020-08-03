@@ -73,6 +73,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Chỉnh sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -84,6 +85,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -245,6 +247,7 @@
             this.MinimumSize = new System.Drawing.Size(1245, 823);
             this.Name = "ListCustomerForm";
             this.Text = "ListCustomerForm";
+            this.Load += new System.EventHandler(this.ListCustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

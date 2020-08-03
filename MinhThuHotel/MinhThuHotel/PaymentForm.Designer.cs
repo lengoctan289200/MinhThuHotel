@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button btnBack;
-            this.dataGridViewPayment = new System.Windows.Forms.DataGridView();
+            this.DataGridViewPayment = new System.Windows.Forms.DataGridView();
             this.btnPayment = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPayment)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -47,17 +49,17 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // dataGridViewPayment
+            // DataGridViewPayment
             // 
-            this.dataGridViewPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DataGridViewPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPayment.Location = new System.Drawing.Point(12, 12);
-            this.dataGridViewPayment.Name = "dataGridViewPayment";
-            this.dataGridViewPayment.Size = new System.Drawing.Size(1245, 740);
-            this.dataGridViewPayment.TabIndex = 0;
+            this.DataGridViewPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewPayment.Location = new System.Drawing.Point(12, 12);
+            this.DataGridViewPayment.Name = "DataGridViewPayment";
+            this.DataGridViewPayment.Size = new System.Drawing.Size(1245, 740);
+            this.DataGridViewPayment.TabIndex = 0;
             // 
             // btnPayment
             // 
@@ -71,25 +73,53 @@
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(680, 758);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(255, 39);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Chỉnh sửa";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(680, 803);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(255, 39);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 854);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(btnBack);
             this.Controls.Add(this.btnPayment);
-            this.Controls.Add(this.dataGridViewPayment);
+            this.Controls.Add(this.DataGridViewPayment);
             this.MinimumSize = new System.Drawing.Size(488, 425);
             this.Name = "PaymentForm";
             this.Text = "Thanh Toán";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPayment)).EndInit();
+            this.Load += new System.EventHandler(this.PaymentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPayment)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewPayment;
+        private System.Windows.Forms.DataGridView DataGridViewPayment;
         private System.Windows.Forms.Button btnPayment;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
