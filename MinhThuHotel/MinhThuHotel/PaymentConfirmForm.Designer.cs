@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,21 +42,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Thanh Toán Thành Công";
             // 
-            // btnMenu
-            // 
-            this.btnMenu.Location = new System.Drawing.Point(63, 91);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(129, 45);
-            this.btnMenu.TabIndex = 3;
-            this.btnMenu.Text = "Quay về Trang Chủ";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(198, 91);
+            this.btnPay.Location = new System.Drawing.Point(95, 91);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(129, 45);
+            this.btnPay.Size = new System.Drawing.Size(194, 45);
             this.btnPay.TabIndex = 4;
             this.btnPay.Text = "Tiếp tục Thanh Toán";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -69,7 +58,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 152);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(405, 191);
@@ -85,7 +73,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button btnPay;
     }
 }

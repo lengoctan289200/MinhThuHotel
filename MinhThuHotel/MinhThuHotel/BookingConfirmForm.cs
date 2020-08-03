@@ -18,16 +18,13 @@ namespace MinhThuHotel
 
         private void btnBookingPage_Click(object sender, EventArgs e)
         {
-            BookingForm bookingForm = new BookingForm();
-            bookingForm.Show();
-            this.Hide();
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingForm"), new object[] { });
+            form.ShowDialog();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            MenuForm mn = new MenuForm();
-            mn.Show();
-            this.Hide();
+            Close();
         }
     }
 }

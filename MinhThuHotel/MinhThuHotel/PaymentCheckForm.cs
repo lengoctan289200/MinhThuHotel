@@ -15,19 +15,17 @@ namespace MinhThuHotel
         {
             InitializeComponent();
         }
-
+        
         private void btnPay_Click(object sender, EventArgs e)
         {
-            PaymentConfirmForm confirmForm = new PaymentConfirmForm();
-            confirmForm.Show();
-            this.Hide();
+            Close();
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentConfirmForm"), new object[] { });
+            form.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            PaymentForm paymentForm = new PaymentForm();
-            paymentForm.Show();
-            this.Hide();
+            Close();
         }
     }
 }

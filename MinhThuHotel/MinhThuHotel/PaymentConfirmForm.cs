@@ -16,18 +16,9 @@ namespace MinhThuHotel
             InitializeComponent();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            MenuForm mn = new MenuForm();
-            mn.Show();
-            this.Hide();
-        }
-
         private void btnPay_Click(object sender, EventArgs e)
         {
-            PaymentForm paymentForm = new PaymentForm();
-            paymentForm.Show();
-            this.Hide();
+            Close();
         }
     }
 }

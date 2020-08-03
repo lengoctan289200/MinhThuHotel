@@ -18,16 +18,13 @@ namespace MinhThuHotel
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            PaymentCheckForm confirmForm = new PaymentCheckForm();
-            confirmForm.Show();
-            this.Hide();
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentCheckForm"), new object[] { });
+            form.ShowDialog();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MenuForm mn = new MenuForm();
-            mn.Show();
-            this.Hide();
+            Close();
         }
     }
 }

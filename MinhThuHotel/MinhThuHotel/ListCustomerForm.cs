@@ -18,9 +18,7 @@ namespace MinhThuHotel
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            MenuForm mn = new MenuForm();
-            mn.Show();
-            this.Hide();
+            Close();
         }
     }
 }

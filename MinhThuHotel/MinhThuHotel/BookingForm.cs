@@ -92,10 +92,8 @@ namespace MinhThuHotel
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
-        {
-            MenuForm mn = new MenuForm();
-            mn.Show();
-            this.Hide();
+        {            
+            Close();
         }
 
         private void btnBooking_Click(object sender, EventArgs e)
@@ -104,6 +102,8 @@ namespace MinhThuHotel
             if (check)
             {
                 Close();
+                Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
+                form.ShowDialog();
             }
         }
 
