@@ -74,17 +74,35 @@ namespace MinhThuHotel
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
 
-                cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
-                cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
-                cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
-                cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
-                cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
-                cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
-                cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
-                cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
-                if (cmd.ExecuteNonQuery() != 0)
+                if (name == "")
                 {
-                    return true; 
+                    MessageBox.Show("Vui lòng nhập họ tên!");
+                    txtName.Focus();
+                }                 
+                else if (ID == "")
+                {
+                    MessageBox.Show("Vui lòng nhập CMND!");
+                    txtIdentification.Focus();
+                }
+                else if (phone == "")
+                {
+                    MessageBox.Show("Vui lòng nhập SĐT!");
+                    txtPhone.Focus();
+                }
+                else
+                {
+                    cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
+                    cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
+                    cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
+                    cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
+                    cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
+                    cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
+                    cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
+                    cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
                 }
 
             }
@@ -130,7 +148,7 @@ namespace MinhThuHotel
 
                     cbxRoom.DataSource = roomTable;
                     cbxRoom.DisplayMember = "roomID";
-                    cbxRoom.ValueMember = "roomID";
+                    cbxRoom.ValueMember = "roomID"; 
                 }
 
             }
