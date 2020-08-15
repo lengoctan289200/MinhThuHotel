@@ -72,5 +72,37 @@ namespace MinhThuHotel
                 DataGridViewPayment.Rows.RemoveAt(item.Index);
             }
         }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            DataGridViewPayment.DataSource = this.Search();
+        }
+
+        private DataTable Search()
+        {
+            string query = "SELECT CusID, CusName, Identification, phoneNumb, checkInDate, checkOutDate, roomID, paymentStatus FROM Customer";
+            query += " WHERE paymentStatus = No";
+            query += " AND (CusID LIKE '%' + @SearchTerm + '%'";
+            query += " OR CusName LIKE '%' + @SearchTerm + '%'";
+            query += " OR Identification LIKE '%' + @SearchTerm + '%'";
+            query += " OR phoneNumb LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkInDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkOutDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR roomID LIKE '%' + @SearchTerm + '%'";
+            query += " OR @SearchTerm = '')";
+            using (OleDbConnection con = DBHelper.OpenAccessConnection())
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@SearchTerm", txtSearch.Text.Trim());
+                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
     }
 }

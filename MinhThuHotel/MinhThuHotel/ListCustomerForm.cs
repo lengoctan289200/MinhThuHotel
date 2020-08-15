@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -70,6 +71,37 @@ namespace MinhThuHotel
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private DataTable Search() {
+            string query = "SELECT CusID, CusName, Identification, phoneNumb, checkInDate, checkOutDate, roomID, paymentStatus FROM Customer";
+            query += " WHERE paymentStatus = Yes";
+            query += " AND (CusID LIKE '%' + @SearchTerm + '%'";
+            query += " OR CusName LIKE '%' + @SearchTerm + '%'";
+            query += " OR Identification LIKE '%' + @SearchTerm + '%'";
+            query += " OR phoneNumb LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkInDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkOutDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR roomID LIKE '%' + @SearchTerm + '%'";            
+            query += " OR @SearchTerm = '')";
+            using (OleDbConnection con = DBHelper.OpenAccessConnection())
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@SearchTerm", txtSearch.Text.Trim());
+                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+         }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            dataGridView1.DataSource = this.Search();
         }
     }
 }

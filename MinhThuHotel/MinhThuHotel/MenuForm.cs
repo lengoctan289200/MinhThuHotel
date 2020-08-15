@@ -18,8 +18,8 @@ namespace MinhThuHotel
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.ListCustomerForm"), new object[] { });
-            form.ShowDialog();
+            ListCustomerForm listCustomer = new ListCustomerForm();
+            listCustomer.Show();
         }
 
         private void btnBooking_Click(object sender, EventArgs e)
@@ -30,8 +30,8 @@ namespace MinhThuHotel
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentForm"), new object[] { });
-            form.ShowDialog();
+            PaymentForm listPayment = new PaymentForm();
+            listPayment.Show();
         }
     }
 }
