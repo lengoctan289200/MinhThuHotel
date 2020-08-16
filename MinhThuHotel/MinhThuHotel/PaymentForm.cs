@@ -41,6 +41,12 @@ namespace MinhThuHotel
             DataGridViewPayment.Columns["checkOutDate"].HeaderText = "Ngày trả phòng";
             DataGridViewPayment.Columns["roomID"].HeaderText = "Phòng";
             DataGridViewPayment.Columns["paymentStatus"].HeaderText = "Thanh toán";
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            DataGridViewPayment.Columns.Add(btn);
+            btn.HeaderText = "Xóa";
+            btn.Text = "X";
+            btn.Name = "btnDelete";
+            btn.UseColumnTextForButtonValue = true;
             DataGridViewPayment.AllowUserToAddRows = false;
         }
 
@@ -100,6 +106,37 @@ namespace MinhThuHotel
                         DataTable dt = new DataTable();
                         sda.Fill(dt);
                         return dt;
+                    }
+                }
+            }
+        }
+
+        private void DataGridViewPayment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 8)
+            {
+                DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
+                if (MessageBox.Show(string.Format("Bạn có chắc xóa khách hàng: {0}?", row.Cells["CusName"].Value), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (OleDbConnection con = DBHelper.OpenAccessConnection())
+                        {
+                            using (OleDbCommand cmd = new OleDbCommand("DELETE FROM Customer WHERE CusID = @CustomerId", con))
+                            {
+                                cmd.CommandType = CommandType.Text;
+                                cmd.Parameters.AddWithValue("@CustomerId", row.Cells["CusID"].Value);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                                DataGridViewPayment.Rows.RemoveAt(row.Index);
+                            }
+                        }
+                        this.GetPaymentList();
+                    }
+                    catch (OleDbException ex)
+                    {
+
+                        Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
                     }
                 }
             }

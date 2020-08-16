@@ -31,6 +31,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBookingPage = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,19 +46,30 @@
             // 
             // btnBookingPage
             // 
-            this.btnBookingPage.Location = new System.Drawing.Point(66, 91);
+            this.btnBookingPage.Location = new System.Drawing.Point(192, 91);
             this.btnBookingPage.Name = "btnBookingPage";
-            this.btnBookingPage.Size = new System.Drawing.Size(267, 72);
+            this.btnBookingPage.Size = new System.Drawing.Size(185, 72);
             this.btnBookingPage.TabIndex = 2;
-            this.btnBookingPage.Text = "Xác nhận";
+            this.btnBookingPage.Text = "Tiếp tục đặt phòng";
             this.btnBookingPage.UseVisualStyleBackColor = true;
             this.btnBookingPage.Click += new System.EventHandler(this.btnBookingPage_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(12, 91);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(174, 72);
+            this.btnConfirm.TabIndex = 3;
+            this.btnConfirm.Text = "Xác nhận";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // BookingConfirmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 175);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnBookingPage);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
@@ -77,5 +89,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBookingPage;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

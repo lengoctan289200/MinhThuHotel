@@ -180,6 +180,7 @@ namespace MinhThuHotel
                 updateStatus();
                 Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
                 form.ShowDialog();
+                Close();
             }
         }
 

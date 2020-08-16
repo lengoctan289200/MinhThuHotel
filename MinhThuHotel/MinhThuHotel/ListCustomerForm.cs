@@ -36,6 +36,12 @@ namespace MinhThuHotel
             dataGridView1.Columns["checkOutDate"].HeaderText = "Ngày trả phòng";
             dataGridView1.Columns["roomID"].HeaderText = "Phòng";
             dataGridView1.Columns["paymentStatus"].HeaderText = "Thanh toán";
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            dataGridView1.Columns.Add(btn);
+            btn.HeaderText = "Xóa";
+            btn.Text = "X";
+            btn.Name = "btnDelete";
+            btn.UseColumnTextForButtonValue = true;
             dataGridView1.AllowUserToAddRows = false;
         }
 
@@ -58,14 +64,6 @@ namespace MinhThuHotel
                 Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
             }
             return listCustomer;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
-            {
-                dataGridView1.Rows.RemoveAt(item.Index);
-            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -102,6 +100,37 @@ namespace MinhThuHotel
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
             dataGridView1.DataSource = this.Search();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 8)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                if (MessageBox.Show(string.Format("Bạn có chắc xóa khách hàng: {0}?", row.Cells["CusName"].Value), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (OleDbConnection con = DBHelper.OpenAccessConnection())
+                        {
+                            using (OleDbCommand cmd = new OleDbCommand("DELETE FROM Customer WHERE CusID = @CustomerId", con))
+                            {
+                                cmd.CommandType = CommandType.Text;
+                                cmd.Parameters.AddWithValue("@CustomerId", row.Cells["CusID"].Value);
+                                cmd.ExecuteNonQuery();                                
+                                con.Close();
+                                dataGridView1.Rows.RemoveAt(row.Index);
+                            }
+                        }
+                        this.GetCustomerList();
+                    }
+                    catch (OleDbException ex)
+                    {
+
+                        Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
+                    }                    
+                }
+            }
         }
     }
 }

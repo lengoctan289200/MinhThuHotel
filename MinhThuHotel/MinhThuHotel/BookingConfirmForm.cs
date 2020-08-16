@@ -19,6 +19,14 @@ namespace MinhThuHotel
         private void btnBookingPage_Click(object sender, EventArgs e)
         {
             Close();
+            BookingForm bookingForm = new BookingForm();
+            bookingForm.Show();
+            bookingForm.Focus();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            Close();            
         }
     }
 }
