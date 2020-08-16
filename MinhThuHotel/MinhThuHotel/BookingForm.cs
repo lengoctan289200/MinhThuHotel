@@ -37,9 +37,14 @@ namespace MinhThuHotel
                     cbxRoomType.DisplayMember = "ID";
                     cbxRoomType.ValueMember = "ID";
 
-                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
-                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
-                    adapter2.Fill(roomTable);
+                    String sql2 = "SELECT price FROM RoomType WHERE ID = '" + cbxRoomType.SelectedValue.ToString() + "'";
+                    OleDbCommand cmd = new OleDbCommand(sql2, con);
+                    object result = cmd.ExecuteScalar();
+                    txtPrice.Text = result.ToString();
+
+                    String sql3 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
+                    OleDbDataAdapter adapter3 = new OleDbDataAdapter(sql3, con);
+                    adapter3.Fill(roomTable);
 
                     cbxRoom.DataSource = roomTable;
                     cbxRoom.DisplayMember = "roomID";
@@ -196,13 +201,25 @@ namespace MinhThuHotel
                 con = DBHelper.OpenAccessConnection();
                 if (con != null)
                 {
-                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
-                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
-                    adapter2.Fill(roomTable);
+                    String sql = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
+                    adapter.Fill(roomTable);
 
                     cbxRoom.DataSource = roomTable;
                     cbxRoom.DisplayMember = "roomID";
-                    cbxRoom.ValueMember = "roomID"; 
+                    cbxRoom.ValueMember = "roomID";
+
+                    String sql2 = "SELECT price FROM RoomType WHERE ID = '" + cbxRoomType.SelectedValue.ToString() + "'";
+                    OleDbCommand cmd = new OleDbCommand(sql2, con);
+                    object result = cmd.ExecuteScalar();
+                    if (result == null)
+                    {
+                        txtPrice.Text = "";
+                    }
+                    else
+                    {
+                        txtPrice.Text = result.ToString();
+                    }
                 }
 
             }
