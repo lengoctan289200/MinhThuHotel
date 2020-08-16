@@ -37,7 +37,7 @@ namespace MinhThuHotel
                     cbxRoomType.DisplayMember = "ID";
                     cbxRoomType.ValueMember = "ID";
 
-                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "'";
+                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
                     OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
                     adapter2.Fill(roomTable);
 
@@ -50,6 +50,18 @@ namespace MinhThuHotel
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
+                if (ex.Message.Contains("'RoomType' is already opened exclusively by another user")) 
+                {
+                    MessageBox.Show("Vui lòng tắt bảng RoomType trên MS Access trước khi truy cập");
+                }
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+
+                }
             }
         }
         private bool insertBooking()
@@ -63,9 +75,9 @@ namespace MinhThuHotel
             DateTime chkIn = dateTimePickerCheckIn.Value;
             DateTime chkOut = dateTimePickerCheckOut.Value;
             String Room = cbxRoom.SelectedValue.ToString();
-            //try
-            //{
-            con = DBHelper.OpenAccessConnection();
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
             if (con != null)
             {
                 String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
@@ -78,7 +90,7 @@ namespace MinhThuHotel
                 {
                     MessageBox.Show("Vui lòng nhập họ tên!");
                     txtName.Focus();
-                }                 
+                }
                 else if (ID == "")
                 {
                     MessageBox.Show("Vui lòng nhập CMND!");
@@ -106,7 +118,48 @@ namespace MinhThuHotel
                 }
 
             }
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("OleDbException _ BookingForm _ insertBooking(): " +  ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
             return false;
+        }
+
+        public void updateStatus()
+        {
+            OleDbConnection con = null;
+            String Room = cbxRoom.SelectedValue.ToString();
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "UPDATE Room " +
+                        "SET Available= No WHERE roomID= ?";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return;
+                    }
+                }
+            }
+            catch (OleDbException ex) 
+            {
+                Console.WriteLine("OleDbException _ BookingForm _ updateStatus(): " + ex.Message);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -118,7 +171,8 @@ namespace MinhThuHotel
         {
             bool check = insertBooking();
             if (check)
-            {     
+            {
+                updateStatus();
                 Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
                 form.ShowDialog();
             }
@@ -142,7 +196,7 @@ namespace MinhThuHotel
                 con = DBHelper.OpenAccessConnection();
                 if (con != null)
                 {
-                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "'";
+                    String sql2 = "SELECT roomID FROM Room WHERE RoomType= '" + cbxRoomType.SelectedValue.ToString() + "' AND Available= Yes";
                     OleDbDataAdapter adapter2 = new OleDbDataAdapter(sql2, con);
                     adapter2.Fill(roomTable);
 
