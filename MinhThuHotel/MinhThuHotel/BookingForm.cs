@@ -249,7 +249,8 @@ namespace MinhThuHotel
                     else
                     {
                         price = Convert.ToDouble(result.ToString());
-                        txtPrice.Text = Math.Round((((chkOut - chkIn).TotalDays) + 1) * price).ToString();
+                        int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
+                        txtPrice.Text = (daytotal * price).ToString();
                     }
                 }
 
