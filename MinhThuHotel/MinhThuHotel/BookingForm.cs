@@ -1,4 +1,4 @@
-﻿using MinhThuHotel.Utils;
+using MinhThuHotel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,6 +101,11 @@ namespace MinhThuHotel
             {
                 MessageBox.Show("Đã hết phòng loại " + cbxRoomType.SelectedValue.ToString() + "!");
                 return false;
+            }
+            else if (price == 0)
+            {
+                MessageBox.Show("Ngày trả phòng phải đặt sau ngày nhận phòng!!!");
+                dateTimePickerCheckOut.Focus();
             }
             else
             {
@@ -248,9 +253,15 @@ namespace MinhThuHotel
                     }
                     else
                     {
-                        price = Convert.ToDouble(result.ToString());
-                        int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
-                        txtPrice.Text = (daytotal * price).ToString();
+                        if ((chkOut - chkIn).TotalDays <= 0)
+                        {
+                            txtPrice.Text = "0";
+                        } else
+                        {
+                            price = Convert.ToDouble(result.ToString());
+                            int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
+                            txtPrice.Text = (daytotal * price).ToString();
+                        }                        
                     }
                 }
 

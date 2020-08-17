@@ -1,4 +1,4 @@
-﻿namespace MinhThuHotel
+namespace MinhThuHotel
 {
     partial class PaymentForm
     {
@@ -60,7 +60,7 @@
             this.DataGridViewPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewPayment.Location = new System.Drawing.Point(12, 35);
             this.DataGridViewPayment.Name = "DataGridViewPayment";
-            this.DataGridViewPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DataGridViewPayment.Size = new System.Drawing.Size(1245, 717);
             this.DataGridViewPayment.TabIndex = 0;
             this.DataGridViewPayment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPayment_CellContentClick);
