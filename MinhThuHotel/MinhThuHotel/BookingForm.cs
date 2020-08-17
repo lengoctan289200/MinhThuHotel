@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Windows.Forms;
 
@@ -80,7 +81,23 @@ namespace MinhThuHotel
             DateTime chkIn = dateTimePickerCheckIn.Value;
             DateTime chkOut = dateTimePickerCheckOut.Value;
             String Room;
-            if (cbxRoom.SelectedValue == null)
+            double price = Convert.ToDouble(txtPrice.Text);
+            if (name == "")
+            {
+                MessageBox.Show("Vui lòng nhập họ tên!");
+                txtName.Focus();
+            }
+            else if (ID == "")
+            {
+                MessageBox.Show("Vui lòng nhập CMND!");
+                txtIdentification.Focus();
+            }
+            else if (phone == "")
+            {
+                MessageBox.Show("Vui lòng nhập SĐT!");
+                txtPhone.Focus();
+            }
+            else if (cbxRoom.SelectedValue == null)
             {
                 MessageBox.Show("Đã hết phòng loại " + cbxRoomType.SelectedValue.ToString() + "!");
                 return false;
@@ -88,35 +105,17 @@ namespace MinhThuHotel
             else
             {
                 Room = cbxRoom.SelectedValue.ToString();
-            }
-            try
-            {
-                con = DBHelper.OpenAccessConnection();
-                if (con != null)
+                try
                 {
-                    String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-                    OleDbCommand cmd = new OleDbCommand();
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = sql;
+                    con = DBHelper.OpenAccessConnection();
+                    if (con != null)
+                    {
+                        String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                        OleDbCommand cmd = new OleDbCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = sql;
 
-                    if (name == "")
-                    {
-                        MessageBox.Show("Vui lòng nhập họ tên!");
-                        txtName.Focus();
-                    }
-                    else if (ID == "")
-                    {
-                        MessageBox.Show("Vui lòng nhập CMND!");
-                        txtIdentification.Focus();
-                    }
-                    else if (phone == "")
-                    {
-                        MessageBox.Show("Vui lòng nhập SĐT!");
-                        txtPhone.Focus();
-                    }
-                    else
-                    {
                         cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
                         cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
                         cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
@@ -124,27 +123,28 @@ namespace MinhThuHotel
                         cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
                         cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
                         cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
+                        cmd.Parameters.Add("@price", OleDbType.Double).Value = Math.Round(price);
                         cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
                         if (cmd.ExecuteNonQuery() != 0)
                         {
                             return true;
                         }
                     }
-
                 }
-            }
-            catch (OleDbException ex)
-            {
-                Console.WriteLine("OleDbException _ BookingForm _ insertBooking(): " + ex.Message);
-            }
-            finally
-            {
-                if (con != null)
+                catch (OleDbException ex)
                 {
-                    con.Close();
+                    Console.WriteLine("OleDbException _ BookingForm _ insertBooking(): " + ex.Message);
+                }
+                finally
+                {
+                    if (con != null)
+                    {
+                        con.Close();
+                    }
                 }
             }
             return false;
+
         }
 
         private void updateStatus()
@@ -179,7 +179,6 @@ namespace MinhThuHotel
                 if (con != null)
                 {
                     con.Close();
-
                 }
             }
         }
@@ -197,7 +196,6 @@ namespace MinhThuHotel
                 updateStatus();
                 Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
                 form.ShowDialog();
-                Close();
             }
         }
 
@@ -211,7 +209,21 @@ namespace MinhThuHotel
 
         private void cbxRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.priceChange();
+        }
+
+        private void dateTimePickerCheckOut_ValueChanged(object sender, EventArgs e)
+        {
+            this.priceChange();
+        }
+
+        private void priceChange()
+        {
             DataTable roomTable = new DataTable();
+
+            DateTime chkIn = dateTimePickerCheckIn.Value;
+            DateTime chkOut = dateTimePickerCheckOut.Value;
+            double price;
 
             OleDbConnection con = null;
             try
@@ -236,7 +248,8 @@ namespace MinhThuHotel
                     }
                     else
                     {
-                        txtPrice.Text = result.ToString();
+                        price = Convert.ToDouble(result.ToString());
+                        txtPrice.Text = Math.Round((((chkOut - chkIn).TotalDays) + 1) * price).ToString();
                     }
                 }
 
@@ -252,6 +265,11 @@ namespace MinhThuHotel
                     con.Close();
                 }
             }
+        }
+
+        private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+            this.priceChange();
         }
     }
 }

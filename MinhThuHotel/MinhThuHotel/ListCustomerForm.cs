@@ -35,6 +35,7 @@ namespace MinhThuHotel
             dataGridView1.Columns["checkInDate"].HeaderText = "Ngày nhận phòng";
             dataGridView1.Columns["checkOutDate"].HeaderText = "Ngày trả phòng";
             dataGridView1.Columns["roomID"].HeaderText = "Phòng";
+            dataGridView1.Columns["price"].HeaderText = "Giá tiền";
             dataGridView1.Columns["paymentStatus"].HeaderText = "Thanh toán";
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             dataGridView1.Columns.Add(btn);
@@ -81,6 +82,7 @@ namespace MinhThuHotel
             query += " OR checkInDate LIKE '%' + @SearchTerm + '%'";
             query += " OR checkOutDate LIKE '%' + @SearchTerm + '%'";
             query += " OR roomID LIKE '%' + @SearchTerm + '%'";            
+            query += " OR price LIKE '%' + @SearchTerm + '%'";            
             query += " OR @SearchTerm = '')";
             using (OleDbConnection con = DBHelper.OpenAccessConnection())
             {
@@ -104,7 +106,7 @@ namespace MinhThuHotel
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 9)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 if (MessageBox.Show(string.Format("Bạn có chắc xóa khách hàng: {0}?", row.Cells["CusName"].Value), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)

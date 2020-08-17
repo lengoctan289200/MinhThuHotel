@@ -150,6 +150,7 @@
             this.dateTimePickerCheckIn.Name = "dateTimePickerCheckIn";
             this.dateTimePickerCheckIn.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCheckIn.TabIndex = 14;
+            this.dateTimePickerCheckIn.ValueChanged += new System.EventHandler(this.dateTimePickerCheckIn_ValueChanged);
             // 
             // dateTimePickerCheckOut
             // 
@@ -158,6 +159,7 @@
             this.dateTimePickerCheckOut.Name = "dateTimePickerCheckOut";
             this.dateTimePickerCheckOut.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCheckOut.TabIndex = 15;
+            this.dateTimePickerCheckOut.ValueChanged += new System.EventHandler(this.dateTimePickerCheckOut_ValueChanged);
             // 
             // cbxRoomType
             // 
@@ -274,8 +276,8 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(564, 234);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtPrice.Location = new System.Drawing.Point(515, 235);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(1);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(91, 20);
@@ -286,11 +288,11 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(488, 234);
+            this.label5.Location = new System.Drawing.Point(484, 234);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 23);
+            this.label5.Size = new System.Drawing.Size(27, 23);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Giá tiền: ";
+            this.label5.Text = "$:";
             // 
             // BookingForm
             // 
