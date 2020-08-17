@@ -55,7 +55,7 @@ namespace MinhThuHotel
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
-                if (ex.Message.Contains("'RoomType' is already opened exclusively by another user")) 
+                if (ex.Message.Contains("'RoomType' is already opened exclusively by another user"))
                 {
                     MessageBox.Show("Vui lòng tắt bảng RoomType trên MS Access trước khi truy cập");
                 }
@@ -83,50 +83,50 @@ namespace MinhThuHotel
             try
             {
                 con = DBHelper.OpenAccessConnection();
-            if (con != null)
-            {
-                String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-                OleDbCommand cmd = new OleDbCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = sql;
+                if (con != null)
+                {
+                    String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
 
-                if (name == "")
-                {
-                    MessageBox.Show("Vui lòng nhập họ tên!");
-                    txtName.Focus();
-                }
-                else if (ID == "")
-                {
-                    MessageBox.Show("Vui lòng nhập CMND!");
-                    txtIdentification.Focus();
-                }
-                else if (phone == "")
-                {
-                    MessageBox.Show("Vui lòng nhập SĐT!");
-                    txtPhone.Focus();
-                }
-                else
-                {
-                    cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
-                    cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
-                    cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
-                    cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
-                    cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
-                    cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
-                    cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
-                    cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
-                    if (cmd.ExecuteNonQuery() != 0)
+                    if (name == "")
                     {
-                        return true;
+                        MessageBox.Show("Vui lòng nhập họ tên!");
+                        txtName.Focus();
                     }
-                }
+                    else if (ID == "")
+                    {
+                        MessageBox.Show("Vui lòng nhập CMND!");
+                        txtIdentification.Focus();
+                    }
+                    else if (phone == "")
+                    {
+                        MessageBox.Show("Vui lòng nhập SĐT!");
+                        txtPhone.Focus();
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = bookingID;
+                        cmd.Parameters.Add("@cusName", OleDbType.VarChar).Value = name;
+                        cmd.Parameters.Add("@Identification", OleDbType.VarChar).Value = ID;
+                        cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = phone;
+                        cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = chkIn;
+                        cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = chkOut;
+                        cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(Room);
+                        cmd.Parameters.Add("@paymentStatus", OleDbType.Boolean).Value = false;
+                        if (cmd.ExecuteNonQuery() != 0)
+                        {
+                            return true;
+                        }
+                    }
 
-            }
+                }
             }
             catch (OleDbException ex)
             {
-                Console.WriteLine("OleDbException _ BookingForm _ insertBooking(): " +  ex.Message);
+                Console.WriteLine("OleDbException _ BookingForm _ insertBooking(): " + ex.Message);
             }
             finally
             {
@@ -138,7 +138,7 @@ namespace MinhThuHotel
             return false;
         }
 
-        public void updateStatus()
+        private void updateStatus()
         {
             OleDbConnection con = null;
             String Room = cbxRoom.SelectedValue.ToString();
@@ -161,14 +161,22 @@ namespace MinhThuHotel
                     }
                 }
             }
-            catch (OleDbException ex) 
+            catch (OleDbException ex)
             {
                 Console.WriteLine("OleDbException _ BookingForm _ updateStatus(): " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+
+                }
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
-        {            
+        {
             Close();
         }
 
@@ -227,6 +235,13 @@ namespace MinhThuHotel
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: BookingForm _ loadRoom() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
         }
     }

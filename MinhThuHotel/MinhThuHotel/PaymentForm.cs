@@ -61,12 +61,19 @@ namespace MinhThuHotel
                 {
                     String sql = "SELECT * FROM Customer WHERE paymentStatus = 0";
                     OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
-                    adapter.Fill(dtPayment);                    
+                    adapter.Fill(dtPayment);
                 }
             }
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
             }
             return dtPayment;
         }
@@ -76,6 +83,42 @@ namespace MinhThuHotel
             foreach (DataGridViewRow item in this.DataGridViewPayment.SelectedRows)
             {
                 DataGridViewPayment.Rows.RemoveAt(item.Index);
+            }
+        }
+
+        private void updateStatus(String value)
+        {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "UPDATE Room " +
+                        "SET Available= Yes WHERE roomID= ?";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = Convert.ToInt32(value);
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return;
+                    }
+                }
+            }
+            catch (AccessViolationException ex)
+            {
+                Console.WriteLine("PaymentForm _ updateStatus() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+
+                }
             }
         }
 
@@ -111,6 +154,41 @@ namespace MinhThuHotel
             }
         }
 
+        private bool deleteCustomer(object value)
+        {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "DELETE FROM Customer WHERE CusID = ?";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@CustomerId", OleDbType.Char).Value = value;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("PaymentForm _ deleteCustomer() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return false;
+        }
+
         private void DataGridViewPayment_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 8)
@@ -118,27 +196,15 @@ namespace MinhThuHotel
                 DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
                 if (MessageBox.Show(string.Format("Bạn có chắc xóa khách hàng: {0}?", row.Cells["CusName"].Value), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    try
+                    String room = row.Cells["roomID"].Value.ToString();
+                    bool result = deleteCustomer(row.Cells["CusID"].Value);
+                    if (result)
                     {
-                        using (OleDbConnection con = DBHelper.OpenAccessConnection())
-                        {
-                            using (OleDbCommand cmd = new OleDbCommand("DELETE FROM Customer WHERE CusID = @CustomerId", con))
-                            {
-                                cmd.CommandType = CommandType.Text;
-                                cmd.Parameters.AddWithValue("@CustomerId", row.Cells["CusID"].Value);
-                                cmd.ExecuteNonQuery();
-                                con.Close();
-                                DataGridViewPayment.Rows.RemoveAt(row.Index);
-                            }
-                        }
-                        this.GetPaymentList();
-                    }
-                    catch (OleDbException ex)
-                    {
-
-                        Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
+                        DataGridViewPayment.Rows.RemoveAt(row.Index);
+                        updateStatus(room);
                     }
                 }
+                GetPaymentList();
             }
         }
     }
