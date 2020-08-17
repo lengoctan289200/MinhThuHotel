@@ -253,15 +253,9 @@ namespace MinhThuHotel
                     }
                     else
                     {
-                        if ((chkOut - chkIn).TotalDays <= 0)
-                        {
-                            txtPrice.Text = "0";
-                        } else
-                        {
-                            price = Convert.ToDouble(result.ToString());
-                            int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
-                            txtPrice.Text = (daytotal * price).ToString();
-                        }                        
+                        price = Convert.ToDouble(result.ToString());
+                        int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
+                        txtPrice.Text = (daytotal * price).ToString();
                     }
                 }
 
