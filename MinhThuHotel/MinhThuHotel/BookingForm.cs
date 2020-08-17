@@ -79,7 +79,16 @@ namespace MinhThuHotel
             String phone = txtPhone.Text;
             DateTime chkIn = dateTimePickerCheckIn.Value;
             DateTime chkOut = dateTimePickerCheckOut.Value;
-            String Room = cbxRoom.SelectedValue.ToString();
+            String Room;
+            if (cbxRoom.SelectedValue == null)
+            {
+                MessageBox.Show("Đã hết phòng loại " + cbxRoomType.SelectedValue.ToString() + "!");
+                return false;
+            }
+            else
+            {
+                Room = cbxRoom.SelectedValue.ToString();
+            }
             try
             {
                 con = DBHelper.OpenAccessConnection();
