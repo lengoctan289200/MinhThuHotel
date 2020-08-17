@@ -92,10 +92,20 @@ namespace MinhThuHotel
                 MessageBox.Show("Vui lòng nhập CMND!");
                 txtIdentification.Focus();
             }
+            else if (txtIdentification.Text.Length <= 0 || txtIdentification.Text.Length > 12)
+            {
+                MessageBox.Show("Vui lòng nhập CMND trong khoảng 0-12 ký tự số!");
+                txtIdentification.Focus();
+            }
             else if (phone == "")
             {
                 MessageBox.Show("Vui lòng nhập SĐT!");
                 txtPhone.Focus();
+            }
+            else if (txtPhone.Text.Length <= 0 || txtPhone.Text.Length > 15)
+            {
+                MessageBox.Show("Vui lòng nhập SĐT trong khoảng 0-15 ký tự số!");
+                txtIdentification.Focus();
             }
             else if (cbxRoom.SelectedValue == null)
             {
@@ -276,6 +286,22 @@ namespace MinhThuHotel
         private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
         {
             this.priceChange();
+        }
+
+        private void txtIdentification_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

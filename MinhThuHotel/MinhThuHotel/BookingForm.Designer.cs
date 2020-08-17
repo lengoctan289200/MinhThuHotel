@@ -134,6 +134,7 @@
             this.txtIdentification.Name = "txtIdentification";
             this.txtIdentification.Size = new System.Drawing.Size(188, 20);
             this.txtIdentification.TabIndex = 12;
+            this.txtIdentification.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentification_KeyPress);
             // 
             // txtPhone
             // 
@@ -142,6 +143,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(129, 20);
             this.txtPhone.TabIndex = 13;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // dateTimePickerCheckIn
             // 
