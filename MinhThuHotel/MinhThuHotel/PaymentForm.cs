@@ -214,5 +214,17 @@ namespace MinhThuHotel
         {
 
         }
+
+        private void DataGridViewPayment_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { });
+            form.ShowDialog();
+        }
+
+        private void DataGridViewPayment_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { });
+            form.ShowDialog();
+        }
     }
 }
