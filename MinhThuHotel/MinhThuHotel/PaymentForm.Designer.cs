@@ -31,7 +31,6 @@ namespace MinhThuHotel
             System.Windows.Forms.Button btnBack;
             this.DataGridViewPayment = new System.Windows.Forms.DataGridView();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -77,17 +76,6 @@ namespace MinhThuHotel
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(680, 758);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(255, 39);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Chỉnh sửa";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(111, 9);
@@ -116,6 +104,7 @@ namespace MinhThuHotel
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // PaymentForm
             // 
@@ -125,7 +114,6 @@ namespace MinhThuHotel
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(btnBack);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.DataGridViewPayment);
@@ -143,7 +131,6 @@ namespace MinhThuHotel
 
         private System.Windows.Forms.DataGridView DataGridViewPayment;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSave;

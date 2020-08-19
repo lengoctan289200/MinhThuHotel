@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdentification = new System.Windows.Forms.TextBox();
-            this.txtRoomPrice = new System.Windows.Forms.TextBox();
+            this.txtRoom = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbxWater = new System.Windows.Forms.CheckBox();
@@ -47,6 +47,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(80, 75);
+            this.label2.Location = new System.Drawing.Point(80, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 21);
             this.label2.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 108);
+            this.label3.Location = new System.Drawing.Point(50, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 21);
             this.label3.TabIndex = 5;
@@ -110,17 +112,17 @@
             // 
             // txtIdentification
             // 
-            this.txtIdentification.Location = new System.Drawing.Point(155, 77);
+            this.txtIdentification.Location = new System.Drawing.Point(155, 69);
             this.txtIdentification.Name = "txtIdentification";
             this.txtIdentification.Size = new System.Drawing.Size(143, 20);
             this.txtIdentification.TabIndex = 7;
             // 
-            // txtRoomPrice
+            // txtRoom
             // 
-            this.txtRoomPrice.Location = new System.Drawing.Point(155, 110);
-            this.txtRoomPrice.Name = "txtRoomPrice";
-            this.txtRoomPrice.Size = new System.Drawing.Size(143, 20);
-            this.txtRoomPrice.TabIndex = 8;
+            this.txtRoom.Location = new System.Drawing.Point(155, 92);
+            this.txtRoom.Name = "txtRoom";
+            this.txtRoom.Size = new System.Drawing.Size(143, 20);
+            this.txtRoom.TabIndex = 8;
             // 
             // panel1
             // 
@@ -230,16 +232,35 @@
             this.txtTotal.Size = new System.Drawing.Size(143, 20);
             this.txtTotal.TabIndex = 12;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(155, 116);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(143, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(87, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 21);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Phòng:";
+            // 
             // PaymentCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 354);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtRoomPrice);
+            this.Controls.Add(this.txtRoom);
             this.Controls.Add(this.txtIdentification);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -270,7 +291,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdentification;
-        private System.Windows.Forms.TextBox txtRoomPrice;
+        private System.Windows.Forms.TextBox txtRoom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox cbxCoca;
@@ -282,5 +303,7 @@
         private System.Windows.Forms.CheckBox cbxPepsi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
