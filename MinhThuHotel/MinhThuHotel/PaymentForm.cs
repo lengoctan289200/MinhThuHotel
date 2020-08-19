@@ -1,4 +1,5 @@
-﻿using MinhThuHotel.Utils;
+﻿using MinhThuHotel.Data;
+using MinhThuHotel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +52,7 @@ namespace MinhThuHotel
             DataGridViewPayment.AllowUserToAddRows = false;
         }
 
-        private DataTable GetPaymentList()
+        public DataTable GetPaymentList()
         {
             DataTable dtPayment = new DataTable();
             OleDbConnection con = null;
@@ -215,15 +216,20 @@ namespace MinhThuHotel
 
         }
 
-        private void DataGridViewPayment_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { });
-            form.ShowDialog();
-        }
-
         private void DataGridViewPayment_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { });
+            DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
+            String cusID = row.Cells["cusID"].Value.ToString();
+            String cusName = row.Cells["cusName"].Value.ToString();
+            String identification = row.Cells["Identification"].Value.ToString();
+            String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
+            DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
+            DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
+            int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
+            double price = Convert.ToDouble(row.Cells["price"].Value);
+            bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
+            Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
             form.ShowDialog();
         }
     }

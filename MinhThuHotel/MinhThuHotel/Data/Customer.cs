@@ -5,32 +5,24 @@ using System.Text;
 
 namespace MinhThuHotel.Data
 {
-    class Customer
+    public class Customer
     {
-        protected string cusID;
-        protected string cusName;
-        protected string identification;
-        protected string phoneNumb;
-        protected DateTime checkInDate;
-        protected DateTime checkOutDate;
-        protected int roomID;
-        protected bool paymentStatus;
-
-        public string CusID { get { return cusID; } set { cusID = value; } }
-        public string CusName { get { return cusName; } set { cusName = value; } }
-        public string Identification { get { return identification; } set { identification = value; } }
-        public string PhoneNumb { get { return phoneNumb; } set { phoneNumb = value; } }
-        public DateTime CheckinDate { get { return checkInDate; } set { checkInDate = value; } }
-        public DateTime CheckoutDate { get { return checkOutDate; } set { checkOutDate = value; } }
-        public int RoomID { get { return roomID; } set { roomID = value; } }
-        public bool PaymentStatus { get { return paymentStatus; } set { paymentStatus = value; } }
+        public String cusID { get; set; }
+        public String cusName { get; set; }
+        public String identification { get; set; }
+        public String phoneNumb { get; set; }
+        public DateTime checkInDate { get; set; }
+        public DateTime checkOutDate { get; set; }
+        public int roomID { get; set; }
+        public double price { get; set; }
+        public bool paymentStatus { get; set; }
 
         public Customer()
         {
 
         }
 
-        public Customer(string CusID, string CusName, string Identification, string PhoneNumb, DateTime CheckinDate, DateTime CheckoutDate, int RoomID, bool PaymentStatus)
+        public Customer(string CusID, string CusName, string Identification, string PhoneNumb, DateTime CheckinDate, DateTime CheckoutDate, int RoomID, double Price, bool PaymentStatus)
         {
             cusID = CusID;
             cusName = CusName;
@@ -39,6 +31,7 @@ namespace MinhThuHotel.Data
             checkInDate = CheckinDate;
             checkOutDate = CheckoutDate;
             roomID = RoomID;
+            price = Price;
             paymentStatus = PaymentStatus;
         }
     }
