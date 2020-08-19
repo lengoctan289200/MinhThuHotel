@@ -63,7 +63,6 @@ namespace MinhThuHotel
             this.DataGridViewPayment.TabIndex = 0;
             this.DataGridViewPayment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPayment_CellContentClick);
             this.DataGridViewPayment.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_CellMouseDoubleClick);
-            this.DataGridViewPayment.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_RowHeaderMouseDoubleClick);
             // 
             // btnPayment
             // 
@@ -107,6 +106,7 @@ namespace MinhThuHotel
             this.Controls.Add(this.DataGridViewPayment);
             this.MinimumSize = new System.Drawing.Size(488, 425);
             this.Name = "PaymentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thanh Toán";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPayment)).EndInit();

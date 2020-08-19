@@ -231,6 +231,7 @@ namespace MinhThuHotel
             Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
             Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
             form.ShowDialog();
+            DataGridViewPayment.DataSource = GetPaymentList();
         }
     }
 }
