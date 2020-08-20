@@ -58,7 +58,6 @@ namespace MinhThuHotel
                     cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = dateTimePickerCheckOut.Value;
                     cmd.Parameters.Add("@checkOutDate", OleDbType.Double).Value = Convert.ToDouble(txtPrice.Text);
                     cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = cusID;
-
                     if (cmd.ExecuteNonQuery() != 0)
                     {
                         return true;

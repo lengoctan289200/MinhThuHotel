@@ -19,11 +19,7 @@ namespace MinhThuHotel
             InitializeComponent();
         }
 
-        private void btnPayment_Click(object sender, EventArgs e)
-        {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentCheckForm"), new object[] { });
-            form.ShowDialog();
-        }
+        
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -191,7 +187,7 @@ namespace MinhThuHotel
             }
             return false;
         }
-
+        
         private void DataGridViewPayment_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 9)
@@ -210,13 +206,8 @@ namespace MinhThuHotel
                 GetPaymentList();
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DataGridViewPayment_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        Customer customer;
+       private Customer getCurCustomer(DataGridViewCellMouseEventArgs e)
         {
             DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
             String cusID = row.Cells["cusID"].Value.ToString();
@@ -229,9 +220,24 @@ namespace MinhThuHotel
             double price = Convert.ToDouble(row.Cells["price"].Value);
             bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
             Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
+            return customer;
+        }
+        private void DataGridViewPayment_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            customer = getCurCustomer(e);
             Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
             form.ShowDialog();
             DataGridViewPayment.DataSource = GetPaymentList();
+        }
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentCheckForm"), new object[] { customer });
+            form.ShowDialog();
+        }
+
+        private void DataGridViewPayment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            customer = getCurCustomer(e);
         }
     }
 }
