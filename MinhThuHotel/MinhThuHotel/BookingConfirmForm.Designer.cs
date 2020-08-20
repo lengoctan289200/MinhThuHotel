@@ -72,6 +72,7 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnBookingPage);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(405, 214);
             this.MinimizeBox = false;

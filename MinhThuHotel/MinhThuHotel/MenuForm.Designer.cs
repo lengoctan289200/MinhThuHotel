@@ -99,6 +99,7 @@
             this.ClientSize = new System.Drawing.Size(521, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(537, 546);
             this.MinimizeBox = false;

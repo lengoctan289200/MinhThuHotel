@@ -306,6 +306,8 @@
             this.Controls.Add(this.btnBooking);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(880, 576);
             this.Name = "BookingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

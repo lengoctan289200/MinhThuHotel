@@ -218,6 +218,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(439, 314);
             this.MinimumSize = new System.Drawing.Size(439, 314);
             this.Name = "UpdateForm";

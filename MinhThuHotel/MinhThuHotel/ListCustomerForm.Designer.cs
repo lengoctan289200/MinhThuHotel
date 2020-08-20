@@ -91,7 +91,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dataGridView1);
-            this.MinimumSize = new System.Drawing.Size(1285, 893);
+            this.MinimumSize = new System.Drawing.Size(319, 333);
             this.Name = "ListCustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách";

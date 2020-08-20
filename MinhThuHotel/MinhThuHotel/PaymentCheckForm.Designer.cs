@@ -38,33 +38,32 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownNoodle = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCoke = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownBeer = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownWater = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoodle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCoke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBeer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWater)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(595, 718);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCancel.Location = new System.Drawing.Point(223, 301);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(533, 98);
+            this.btnCancel.Size = new System.Drawing.Size(200, 41);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -72,10 +71,9 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(32, 718);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnPay.Location = new System.Drawing.Point(12, 301);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(528, 98);
+            this.btnPay.Size = new System.Drawing.Size(198, 41);
             this.btnPay.TabIndex = 1;
             this.btnPay.Text = "Thanh Toán";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -85,29 +83,26 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 107);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(47, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 55);
+            this.label1.Size = new System.Drawing.Size(102, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Khách hàng:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(413, 107);
-            this.txtName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtName.Location = new System.Drawing.Point(155, 45);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(463, 38);
+            this.txtName.Size = new System.Drawing.Size(176, 20);
             this.txtName.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(213, 169);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(80, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 55);
+            this.label2.Size = new System.Drawing.Size(69, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "CMND:";
             // 
@@ -115,126 +110,117 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(133, 293);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Location = new System.Drawing.Point(50, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 55);
+            this.label3.Size = new System.Drawing.Size(99, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tiền Phòng:";
             // 
             // txtIdentification
             // 
-            this.txtIdentification.Location = new System.Drawing.Point(413, 169);
-            this.txtIdentification.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtIdentification.Location = new System.Drawing.Point(155, 71);
             this.txtIdentification.Name = "txtIdentification";
-            this.txtIdentification.Size = new System.Drawing.Size(375, 38);
+            this.txtIdentification.Size = new System.Drawing.Size(143, 20);
             this.txtIdentification.TabIndex = 7;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(187, 410);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel1.Location = new System.Drawing.Point(70, 172);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 169);
+            this.panel1.Size = new System.Drawing.Size(306, 71);
             this.panel1.TabIndex = 9;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.numericUpDown4);
+            this.panel2.Controls.Add(this.numericUpDownNoodle);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.numericUpDown3);
+            this.panel2.Controls.Add(this.numericUpDownCoke);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.numericUpDown2);
+            this.panel2.Controls.Add(this.numericUpDownBeer);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Location = new System.Drawing.Point(8, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.panel2.Controls.Add(this.numericUpDownWater);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 155);
+            this.panel2.Size = new System.Drawing.Size(300, 65);
             this.panel2.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(493, 86);
-            this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label10.Location = new System.Drawing.Point(185, 36);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 32);
+            this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 7;
             this.label10.Text = "Mì ki (15k):";
             // 
-            // numericUpDown4
+            // numericUpDownNoodle
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(667, 81);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(96, 38);
-            this.numericUpDown4.TabIndex = 6;
+            this.numericUpDownNoodle.Location = new System.Drawing.Point(250, 34);
+            this.numericUpDownNoodle.Name = "numericUpDownNoodle";
+            this.numericUpDownNoodle.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDownNoodle.TabIndex = 6;
+            this.numericUpDownNoodle.ValueChanged += new System.EventHandler(this.numericUpDownNoodle_ValueChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(419, 24);
-            this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label9.Location = new System.Drawing.Point(157, 10);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(223, 32);
+            this.label9.Size = new System.Drawing.Size(87, 13);
             this.label9.TabIndex = 5;
             this.label9.Text = "Nước ngọt (15k):";
             // 
-            // numericUpDown3
+            // numericUpDownCoke
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(667, 19);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(96, 38);
-            this.numericUpDown3.TabIndex = 4;
+            this.numericUpDownCoke.Location = new System.Drawing.Point(250, 8);
+            this.numericUpDownCoke.Name = "numericUpDownCoke";
+            this.numericUpDownCoke.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDownCoke.TabIndex = 4;
+            this.numericUpDownCoke.ValueChanged += new System.EventHandler(this.numericUpDownCoke_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 86);
-            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label8.Location = new System.Drawing.Point(19, 36);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(208, 32);
+            this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 3;
             this.label8.Text = "Bia Tiger (20k):";
             // 
-            // numericUpDown2
+            // numericUpDownBeer
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(277, 81);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(96, 38);
-            this.numericUpDown2.TabIndex = 2;
+            this.numericUpDownBeer.Location = new System.Drawing.Point(104, 34);
+            this.numericUpDownBeer.Name = "numericUpDownBeer";
+            this.numericUpDownBeer.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDownBeer.TabIndex = 2;
+            this.numericUpDownBeer.ValueChanged += new System.EventHandler(this.numericUpDownBeer_ValueChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 24);
-            this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label7.Location = new System.Drawing.Point(13, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(220, 32);
+            this.label7.Size = new System.Drawing.Size(85, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Nước suối (10k):";
             // 
-            // numericUpDown1
+            // numericUpDownWater
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(277, 19);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(96, 38);
-            this.numericUpDown1.TabIndex = 0;
+            this.numericUpDownWater.Location = new System.Drawing.Point(104, 8);
+            this.numericUpDownWater.Name = "numericUpDownWater";
+            this.numericUpDownWater.Size = new System.Drawing.Size(36, 20);
+            this.numericUpDownWater.TabIndex = 0;
+            this.numericUpDownWater.ValueChanged += new System.EventHandler(this.numericUpDownWater_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(453, 351);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Location = new System.Drawing.Point(170, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 55);
+            this.label4.Size = new System.Drawing.Size(76, 22);
             this.label4.TabIndex = 10;
             this.label4.Text = "Dịch Vụ";
             // 
@@ -242,56 +228,51 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(224, 622);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Location = new System.Drawing.Point(84, 261);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(267, 55);
+            this.label5.Size = new System.Drawing.Size(107, 22);
             this.label5.TabIndex = 11;
             this.label5.Text = "Tổng Cộng:";
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(525, 622);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtTotal.Location = new System.Drawing.Point(197, 261);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(375, 38);
+            this.txtTotal.Size = new System.Drawing.Size(143, 20);
             this.txtTotal.TabIndex = 12;
             // 
-            // textBox1
+            // txtPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(413, 293);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(375, 38);
-            this.textBox1.TabIndex = 14;
+            this.txtPrice.Location = new System.Drawing.Point(155, 123);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(143, 20);
+            this.txtPrice.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(232, 231);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Location = new System.Drawing.Point(87, 97);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 55);
+            this.label6.Size = new System.Drawing.Size(62, 21);
             this.label6.TabIndex = 13;
             this.label6.Text = "Phòng:";
             // 
             // txtRoom
             // 
             this.txtRoom.Enabled = false;
-            this.txtRoom.Location = new System.Drawing.Point(413, 231);
-            this.txtRoom.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtRoom.Location = new System.Drawing.Point(155, 97);
             this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Size = new System.Drawing.Size(160, 38);
+            this.txtRoom.Size = new System.Drawing.Size(62, 20);
             this.txtRoom.TabIndex = 15;
             // 
             // PaymentCheckForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 727);
+            this.ClientSize = new System.Drawing.Size(428, 357);
             this.Controls.Add(this.txtRoom);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label5);
@@ -304,21 +285,21 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnCancel);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1157, 815);
+            this.MaximumSize = new System.Drawing.Size(444, 396);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1157, 815);
+            this.MinimumSize = new System.Drawing.Size(444, 396);
             this.Name = "PaymentCheckForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác nhận Thanh Toán";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoodle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCoke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBeer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWater)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,16 +319,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numericUpDownNoodle;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDownCoke;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDownBeer;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownWater;
         private System.Windows.Forms.TextBox txtRoom;
     }
 }

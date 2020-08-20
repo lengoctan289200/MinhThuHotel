@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace MinhThuHotel
 {
     public partial class PaymentCheckForm : Form
-    {
+    {        
+
         public PaymentCheckForm(Customer customer)
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace MinhThuHotel
             txtName.Text = customer.cusName;
             txtIdentification.Text = customer.identification;
             txtRoom.Text = customer.roomID.ToString();
-            txtTotal.Text = customer.price.ToString();
+            txtPrice.Text = customer.price.ToString();
             
         }
 
@@ -37,6 +38,25 @@ namespace MinhThuHotel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void numericUpDownWater_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void numericUpDownCoke_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDownBeer_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDownNoodle_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

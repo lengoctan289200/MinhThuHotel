@@ -59,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(389, 152);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(405, 191);
             this.MinimizeBox = false;
