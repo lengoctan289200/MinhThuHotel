@@ -29,6 +29,7 @@ namespace MinhThuHotel
         {
             dataGridView1.DataSource = GetCustomerList();
             dataGridView1.Columns["CusID"].Visible = false;
+            dataGridView1.Columns["paymentStatus"].Visible = false;
             dataGridView1.Columns["CusID"].HeaderText = "ID";
             dataGridView1.Columns["CusName"].HeaderText = "Họ tên";
             dataGridView1.Columns["Identification"].HeaderText = "CMND";

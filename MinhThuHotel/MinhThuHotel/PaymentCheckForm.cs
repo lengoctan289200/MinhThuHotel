@@ -13,8 +13,7 @@ using System.Windows.Forms;
 namespace MinhThuHotel
 {
     public partial class PaymentCheckForm : Form
-    {        
-
+    {
         public PaymentCheckForm(Customer customer)
         {
             InitializeComponent();
@@ -45,14 +44,14 @@ namespace MinhThuHotel
                 MessageBox.Show("Đã có lỗi xảy ra, vui lòng thử lại!!!");
                 Close();
             }
-            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
-        private double getTotalPrice() {
+        private double getTotalPrice()
+        {
             txtTotal.Text = (Convert.ToInt32(txtPrice.Text) +
                 Convert.ToInt32(numericUpDownWater.Value * 10000)
                 + Convert.ToInt32(numericUpDownCoke.Value * 15000)
@@ -103,7 +102,8 @@ namespace MinhThuHotel
                     }
 
                 }
-            }catch(OleDbException ex)
+            }
+            catch (OleDbException ex)
             {
                 Console.WriteLine("PaymentCheckForm _ checkOut() _ OleDbException: " + ex.Message);
             }

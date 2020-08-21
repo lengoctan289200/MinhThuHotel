@@ -93,6 +93,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(155, 45);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(176, 20);
             this.txtName.TabIndex = 3;
             // 
@@ -120,6 +121,7 @@
             // 
             this.txtIdentification.Location = new System.Drawing.Point(155, 71);
             this.txtIdentification.Name = "txtIdentification";
+            this.txtIdentification.ReadOnly = true;
             this.txtIdentification.Size = new System.Drawing.Size(143, 20);
             this.txtIdentification.TabIndex = 7;
             // 
@@ -245,6 +247,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(155, 123);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(143, 20);
             this.txtPrice.TabIndex = 14;
             // 
@@ -263,6 +266,7 @@
             this.txtRoom.Enabled = false;
             this.txtRoom.Location = new System.Drawing.Point(155, 97);
             this.txtRoom.Name = "txtRoom";
+            this.txtRoom.ReadOnly = true;
             this.txtRoom.Size = new System.Drawing.Size(62, 20);
             this.txtRoom.TabIndex = 15;
             // 

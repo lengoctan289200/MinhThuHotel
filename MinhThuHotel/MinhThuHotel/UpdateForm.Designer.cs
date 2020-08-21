@@ -71,6 +71,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(116, 20);
             this.txtID.TabIndex = 3;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // label2
             // 
@@ -89,6 +90,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 5;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label3
             // 
@@ -194,6 +196,7 @@
             this.txtRoom.Enabled = false;
             this.txtRoom.Location = new System.Drawing.Point(167, 162);
             this.txtRoom.Name = "txtRoom";
+            this.txtRoom.ReadOnly = true;
             this.txtRoom.Size = new System.Drawing.Size(71, 20);
             this.txtRoom.TabIndex = 18;
             // 

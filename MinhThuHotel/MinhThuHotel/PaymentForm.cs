@@ -30,6 +30,7 @@ namespace MinhThuHotel
         {
             DataGridViewPayment.DataSource = GetPaymentList();
             DataGridViewPayment.Columns["CusID"].Visible = false;
+            DataGridViewPayment.Columns["paymentStatus"].Visible = false;
             DataGridViewPayment.Columns["CusID"].HeaderText = "ID";
             DataGridViewPayment.Columns["CusName"].HeaderText = "Họ tên";
             DataGridViewPayment.Columns["Identification"].HeaderText = "CMND";
@@ -231,8 +232,16 @@ namespace MinhThuHotel
         }
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentCheckForm"), new object[] { customer });
-            form.ShowDialog();
+            if (customer != null)
+            {
+                Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentCheckForm"), new object[] { customer });
+                form.ShowDialog();
+                DataGridViewPayment.DataSource = GetPaymentList();
+            }
+            else
+            {
+                MessageBox.Show("Xin hãy chọn một khách hàng để thanh toán!");
+            }
         }
 
         private void DataGridViewPayment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
