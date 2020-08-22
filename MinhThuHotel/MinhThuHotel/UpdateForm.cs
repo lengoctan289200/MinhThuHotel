@@ -27,10 +27,10 @@ namespace MinhThuHotel
             txtName.Text = customer.cusName;
             txtID.Text = customer.identification;
             txtPhone.Text = customer.phoneNumb;
-            txtPrice.Text = customer.price.ToString();
+            txtPrice.Text = customer.price.ToString();            
             txtRoom.Text = customer.roomID.ToString();
             dateTimePickerCheckIn.Value = customer.checkInDate;
-            dateTimePickerCheckOut.Value = customer.checkOutDate;
+            dateTimePickerCheckOut.Value = customer.checkOutDate;            
         }
 
         private bool updateCustomer()
@@ -84,10 +84,14 @@ namespace MinhThuHotel
             bool result = updateCustomer();
             if (result)
             {
-                MessageBox.Show("Chỉnh sửa thành công");
+                MessageBox.Show("Chỉnh sửa thành công!");
                 Close();
             }
-            else Close();
+            else
+            {
+                MessageBox.Show("Chỉnh sửa thất bại!");
+                Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -109,6 +113,16 @@ namespace MinhThuHotel
             {
                 e.Handled = true;
             }
+        }
+
+        private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerCheckOut_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
