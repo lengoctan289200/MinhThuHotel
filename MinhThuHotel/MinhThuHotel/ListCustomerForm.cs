@@ -68,6 +68,38 @@ namespace MinhThuHotel
                 Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
             }
             return listCustomer;
+        }        
+
+        private DataTable Search() {
+            string query = "SELECT CusID, CusName, Identification, phoneNumb, checkInDate, checkOutDate, roomID, paymentStatus FROM Customer";
+            query += " WHERE paymentStatus = Yes";
+            query += " AND (CusID LIKE '%' + @SearchTerm + '%'";
+            query += " OR CusName LIKE '%' + @SearchTerm + '%'";
+            query += " OR Identification LIKE '%' + @SearchTerm + '%'";
+            query += " OR phoneNumb LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkInDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR checkOutDate LIKE '%' + @SearchTerm + '%'";
+            query += " OR roomID LIKE '%' + @SearchTerm + '%'";            
+            query += " OR price LIKE '%' + @SearchTerm + '%'";            
+            query += " OR @SearchTerm = '')";
+            using (OleDbConnection con = DBHelper.OpenAccessConnection())
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@SearchTerm", txtSearch.Text.Trim());
+                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+         }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            dataGridView1.DataSource = this.Search();
         }
 
         private bool deleteCustomer(object value)
@@ -103,38 +135,6 @@ namespace MinhThuHotel
                 }
             }
             return false;
-        }
-
-        private DataTable Search() {
-            string query = "SELECT CusID, CusName, Identification, phoneNumb, checkInDate, checkOutDate, roomID, paymentStatus FROM Customer";
-            query += " WHERE paymentStatus = Yes";
-            query += " AND (CusID LIKE '%' + @SearchTerm + '%'";
-            query += " OR CusName LIKE '%' + @SearchTerm + '%'";
-            query += " OR Identification LIKE '%' + @SearchTerm + '%'";
-            query += " OR phoneNumb LIKE '%' + @SearchTerm + '%'";
-            query += " OR checkInDate LIKE '%' + @SearchTerm + '%'";
-            query += " OR checkOutDate LIKE '%' + @SearchTerm + '%'";
-            query += " OR roomID LIKE '%' + @SearchTerm + '%'";            
-            query += " OR price LIKE '%' + @SearchTerm + '%'";            
-            query += " OR @SearchTerm = '')";
-            using (OleDbConnection con = DBHelper.OpenAccessConnection())
-            {
-                using (OleDbCommand cmd = new OleDbCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@SearchTerm", txtSearch.Text.Trim());
-                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
-         }
-
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            dataGridView1.DataSource = this.Search();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

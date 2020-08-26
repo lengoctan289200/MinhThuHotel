@@ -17,22 +17,15 @@ namespace MinhThuHotel
         }
 
         private void btnBookingPage_Click(object sender, EventArgs e)
-        {            
+        {
+            BookingForm form = new BookingForm();
+            form.Show();
             Close();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            List<Form> forms = new List<Form>();
-
-            foreach (Form f in Application.OpenForms)
-                if (f.Name == "BookingForm")
-                    forms.Add(f);
-
-            foreach (Form f in forms)
-                f.Close();
-            Close();   
-            
+            Close();
         }
     }
 }

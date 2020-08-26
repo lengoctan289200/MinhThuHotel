@@ -209,8 +209,9 @@ namespace MinhThuHotel
             if (check)
             {
                 updateStatus();
-                Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.BookingConfirmForm"), new object[] { });
-                form.ShowDialog();
+                BookingConfirmForm form = new BookingConfirmForm();
+                form.Show();
+                Close();
             }
         }
 
