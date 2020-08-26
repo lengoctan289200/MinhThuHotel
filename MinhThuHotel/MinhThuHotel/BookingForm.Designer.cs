@@ -311,7 +311,7 @@
             this.MinimumSize = new System.Drawing.Size(880, 576);
             this.Name = "BookingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BookingForm";
+            this.Text = "Đặt phòng";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

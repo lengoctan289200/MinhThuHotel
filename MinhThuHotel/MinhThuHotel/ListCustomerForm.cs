@@ -1,4 +1,5 @@
-﻿using MinhThuHotel.Utils;
+﻿using MinhThuHotel.Data;
+using MinhThuHotel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,9 +70,39 @@ namespace MinhThuHotel
             return listCustomer;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private bool deleteCustomer(object value)
         {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "DELETE FROM Customer WHERE CusID = ?";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
 
+                    cmd.Parameters.Add("@CustomerId", OleDbType.Char).Value = value;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("PaymentForm _ deleteCustomer() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return false;
         }
 
         private DataTable Search() {
@@ -113,34 +144,40 @@ namespace MinhThuHotel
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 if (MessageBox.Show(string.Format("Bạn có chắc xóa khách hàng: {0}?", row.Cells["CusName"].Value), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    try
+                    String room = row.Cells["roomID"].Value.ToString();
+                    bool result = deleteCustomer(row.Cells["CusID"].Value);
+                    if (result)
                     {
-                        using (OleDbConnection con = DBHelper.OpenAccessConnection())
-                        {
-                            using (OleDbCommand cmd = new OleDbCommand("DELETE FROM Customer WHERE CusID = @CustomerId", con))
-                            {
-                                cmd.CommandType = CommandType.Text;
-                                cmd.Parameters.AddWithValue("@CustomerId", row.Cells["CusID"].Value);
-                                cmd.ExecuteNonQuery();                                
-                                con.Close();
-                                dataGridView1.Rows.RemoveAt(row.Index);
-                            }
-                        }
-                        this.GetCustomerList();
+                        dataGridView1.Rows.RemoveAt(row.Index);
                     }
-                    catch (OleDbException ex)
-                    {
-
-                        Console.WriteLine("Error: ListCustomerForm _ getCustomerList() _ OleDbException: " + ex.Message);
-                    }                    
                 }
+                GetCustomerList();
             }
+        }        
+
+        Customer customer;
+        private Customer getCurCustomer(DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            String cusID = row.Cells["cusID"].Value.ToString();
+            String cusName = row.Cells["cusName"].Value.ToString();
+            String identification = row.Cells["Identification"].Value.ToString();
+            String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
+            DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
+            DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
+            int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
+            double price = Convert.ToDouble(row.Cells["price"].Value);
+            bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
+            Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
+            return customer;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { });
+            customer = getCurCustomer(e);
+            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
             form.ShowDialog();
+            dataGridView1.DataSource = GetCustomerList();
         }
     }
 }

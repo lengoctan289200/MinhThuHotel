@@ -20,9 +20,11 @@ namespace MinhThuHotel
             loadData(customer);
         }
         String cusID;
+        int roomID;
         private void loadData(Customer customer)
         {
             cusID = customer.cusID;
+            roomID = customer.roomID;
             txtName.Text = customer.cusName;
             txtIdentification.Text = customer.identification;
             txtRoom.Text = customer.roomID.ToString();
@@ -33,7 +35,8 @@ namespace MinhThuHotel
         private void btnPay_Click(object sender, EventArgs e)
         {
             bool result = checkOut();
-            if (result)
+            bool roomAvailable = updateRoom();
+            if (result && roomAvailable)
             {
                 Close();
                 Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.PaymentConfirmForm"), new object[] { });
@@ -96,6 +99,43 @@ namespace MinhThuHotel
 
                     cmd.Parameters.Add("@price", OleDbType.Double).Value = getTotalPrice();
                     cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = cusID;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
+
+                }
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("PaymentCheckForm _ checkOut() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return false;
+        }
+
+        private bool updateRoom()
+        {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "UPDATE Room SET Available = Yes WHERE roomID = ?";
+
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@roomID", OleDbType.Integer).Value = roomID;
                     if (cmd.ExecuteNonQuery() != 0)
                     {
                         return true;

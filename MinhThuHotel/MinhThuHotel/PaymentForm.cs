@@ -77,14 +77,6 @@ namespace MinhThuHotel
             return dtPayment;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow item in this.DataGridViewPayment.SelectedRows)
-            {
-                DataGridViewPayment.Rows.RemoveAt(item.Index);
-            }
-        }
-
         private void updateStatus(String value)
         {
             OleDbConnection con = null;

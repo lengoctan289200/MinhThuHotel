@@ -114,15 +114,5 @@ namespace MinhThuHotel
                 e.Handled = true;
             }
         }
-
-        private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerCheckOut_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

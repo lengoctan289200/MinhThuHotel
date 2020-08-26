@@ -31,7 +31,8 @@ namespace MinhThuHotel
 
             foreach (Form f in forms)
                 f.Close();
-            Close();            
+            Close();   
+            
         }
     }
 }

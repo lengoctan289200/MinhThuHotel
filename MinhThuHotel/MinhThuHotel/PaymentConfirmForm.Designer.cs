@@ -65,6 +65,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(405, 191);
             this.Name = "PaymentConfirmForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác nhận thanh toán";
             this.ResumeLayout(false);
             this.PerformLayout();
