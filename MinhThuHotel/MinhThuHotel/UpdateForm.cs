@@ -33,6 +33,73 @@ namespace MinhThuHotel
             dateTimePickerCheckOut.Value = customer.checkOutDate;            
         }
 
+        private double getPrice()
+        {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "SELECT price FROM RoomType WHERE ID=?";
+
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@ID", OleDbType.VarChar).Value = getRoomType();
+                    object result = cmd.ExecuteScalar();
+                    return Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return 0;
+        }
+
+        private Object getRoomType()
+        {
+            OleDbConnection con = null;
+            try
+            {
+                con = DBHelper.OpenAccessConnection();
+                if (con != null)
+                {
+                    String sql = "SELECT roomType FROM Room WHERE roomID=?";
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+
+                    cmd.Parameters.Add("@roomID", OleDbType.VarChar).Value = Convert.ToInt32(txtRoom.Text);
+                    object result = cmd.ExecuteScalar();
+                    return result;
+                }
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("UpdateForm _ getRoomType() _ OleDbException: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return null;
+        }
+
         private bool updateCustomer()
         {
             OleDbConnection con = null;
@@ -91,7 +158,11 @@ namespace MinhThuHotel
                         cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = txtPhone.Text;
                         cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = dateTimePickerCheckIn.Value;
                         cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = dateTimePickerCheckOut.Value;
-                        cmd.Parameters.Add("@checkOutDate", OleDbType.Double).Value = Convert.ToDouble(txtPrice.Text);
+                        //
+                        int daytotal = (int)((dateTimePickerCheckOut.Value - dateTimePickerCheckIn.Value).TotalDays) + 1;
+                        double roomPrice = getPrice();
+                        txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+                        cmd.Parameters.Add("@price", OleDbType.Double).Value = Convert.ToDouble(txtPrice.Text);
                         cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = cusID;
                         if (cmd.ExecuteNonQuery() != 0)
                         {
