@@ -28,6 +28,10 @@ namespace MinhThuHotel
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn column in DataGridViewPayment.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             DataGridViewPayment.DataSource = GetPaymentList();
             DataGridViewPayment.Columns["CusID"].Visible = false;
             DataGridViewPayment.Columns["paymentStatus"].Visible = false;
@@ -201,26 +205,41 @@ namespace MinhThuHotel
         }
         Customer customer;
        private Customer getCurCustomer(DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
-            String cusID = row.Cells["cusID"].Value.ToString();
-            String cusName = row.Cells["cusName"].Value.ToString();
-            String identification = row.Cells["Identification"].Value.ToString();
-            String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
-            DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
-            DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
-            int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
-            double price = Convert.ToDouble(row.Cells["price"].Value);
-            bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
-            Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
-            return customer;
+        {            
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DataGridViewPayment.Rows[e.RowIndex];
+                String cusID = row.Cells["cusID"].Value.ToString();
+                String cusName = row.Cells["cusName"].Value.ToString();
+                String identification = row.Cells["Identification"].Value.ToString();
+                String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
+                DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
+                DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
+                int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
+                double price = Convert.ToDouble(row.Cells["price"].Value);
+                bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
+                Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
+                return customer;
+            }
+            else
+            {
+                return null;
+            }
         }
         private void DataGridViewPayment_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            customer = getCurCustomer(e);
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
-            form.ShowDialog();
+            customer = getCurCustomer(e);            
+            if (customer != null)
+            {
+                Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
+                form.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
             DataGridViewPayment.DataSource = GetPaymentList();
+            customer = null;
         }
         private void btnPayment_Click(object sender, EventArgs e)
         {
@@ -239,6 +258,16 @@ namespace MinhThuHotel
         private void DataGridViewPayment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             customer = getCurCustomer(e);
+        }
+
+        private void DataGridViewPayment_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void DataGridViewPayment_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("Chưa hỗ trợ tính năng sắp xếp!");
         }
     }
 }

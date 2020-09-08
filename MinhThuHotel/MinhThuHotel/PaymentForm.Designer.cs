@@ -65,6 +65,8 @@ namespace MinhThuHotel
             this.DataGridViewPayment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPayment_CellContentClick);
             this.DataGridViewPayment.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_CellMouseClick);
             this.DataGridViewPayment.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_CellMouseDoubleClick);
+            this.DataGridViewPayment.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_RowHeaderMouseClick);
+            this.DataGridViewPayment.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPayment_RowHeaderMouseDoubleClick);
             // 
             // btnPayment
             // 

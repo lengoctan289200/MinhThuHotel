@@ -28,6 +28,10 @@ namespace MinhThuHotel
 
         private void ListCustomerForm_Load(object sender, EventArgs e)
         {
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             dataGridView1.DataSource = GetCustomerList();
             dataGridView1.Columns["CusID"].Visible = false;
             dataGridView1.Columns["paymentStatus"].Visible = false;
@@ -157,27 +161,42 @@ namespace MinhThuHotel
 
         Customer customer;
         private Customer getCurCustomer(DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-            String cusID = row.Cells["cusID"].Value.ToString();
-            String cusName = row.Cells["cusName"].Value.ToString();
-            String identification = row.Cells["Identification"].Value.ToString();
-            String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
-            DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
-            DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
-            int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
-            double price = Convert.ToDouble(row.Cells["price"].Value);
-            bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
-            Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
-            return customer;
+        {            
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                String cusID = row.Cells["cusID"].Value.ToString();
+                String cusName = row.Cells["cusName"].Value.ToString();
+                String identification = row.Cells["Identification"].Value.ToString();
+                String phoneNumb = row.Cells["phoneNumb"].Value.ToString();
+                DateTime checkInDate = Convert.ToDateTime(row.Cells["checkInDate"].Value);
+                DateTime checkOutDate = Convert.ToDateTime(row.Cells["checkOutDate"].Value);
+                int roomID = Convert.ToInt32(row.Cells["roomID"].Value);
+                double price = Convert.ToDouble(row.Cells["price"].Value);
+                bool paymentStatus = Convert.ToBoolean(row.Cells["paymentStatus"].Value);
+                Customer customer = new Customer(cusID, cusName, identification, phoneNumb, checkInDate, checkOutDate, roomID, price, paymentStatus);
+                return customer;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             customer = getCurCustomer(e);
-            Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
-            form.ShowDialog();
+            if (customer != null)
+            {
+                Form form = (Form)Activator.CreateInstance(Type.GetType("MinhThuHotel.UpdateForm"), new object[] { customer });
+                form.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
             dataGridView1.DataSource = GetCustomerList();
+            customer = null;
         }
     }
 }
