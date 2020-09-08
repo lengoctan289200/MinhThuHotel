@@ -15,11 +15,15 @@ namespace MinhThuHotel
     public partial class UpdateForm : Form
     {
         String cusID;
+        DateTime baseChkIn;
+        DateTime baseChkOut;
         public UpdateForm(Customer customer)
         {
             InitializeComponent();
             loadData(customer);
             cusID = customer.cusID;
+            baseChkIn = customer.checkInDate;
+            baseChkOut = customer.checkOutDate;
         }
 
         public void loadData(Customer customer)
@@ -224,7 +228,16 @@ namespace MinhThuHotel
             DateTime chkOut = dateTimePickerCheckOut.Value;
             int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
             double roomPrice = getPrice();
-            txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+            if (daytotal <= 0)
+            {
+                MessageBox.Show("Ngày trả phòng phải đặt sau ngày nhận phòng!!!");
+                dateTimePickerCheckIn.Value = baseChkIn;
+                dateTimePickerCheckOut.Value = baseChkOut;
+            }
+            else
+            {
+                txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+            }
         }
 
         private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
@@ -233,7 +246,16 @@ namespace MinhThuHotel
             DateTime chkOut = dateTimePickerCheckOut.Value;
             int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
             double roomPrice = getPrice();
-            txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+            if (daytotal <= 0)
+            {
+                MessageBox.Show("Ngày trả phòng phải đặt sau ngày nhận phòng!!!");
+                dateTimePickerCheckIn.Value = baseChkIn;
+                dateTimePickerCheckOut.Value = baseChkOut;
+            }
+            else
+            {
+                txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+            }
         }
     }
 }
