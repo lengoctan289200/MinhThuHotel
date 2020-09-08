@@ -158,10 +158,6 @@ namespace MinhThuHotel
                         cmd.Parameters.Add("@phoneNumb", OleDbType.VarChar).Value = txtPhone.Text;
                         cmd.Parameters.Add("@checkInDate", OleDbType.Date).Value = dateTimePickerCheckIn.Value;
                         cmd.Parameters.Add("@checkOutDate", OleDbType.Date).Value = dateTimePickerCheckOut.Value;
-                        //
-                        int daytotal = (int)((dateTimePickerCheckOut.Value - dateTimePickerCheckIn.Value).TotalDays) + 1;
-                        double roomPrice = getPrice();
-                        txtPrice.Text = (daytotal * (int)roomPrice).ToString();
                         cmd.Parameters.Add("@price", OleDbType.Double).Value = Convert.ToDouble(txtPrice.Text);
                         cmd.Parameters.Add("@cusID", OleDbType.VarChar).Value = cusID;
                         if (cmd.ExecuteNonQuery() != 0)
@@ -220,6 +216,24 @@ namespace MinhThuHotel
             {
                 e.Handled = true;
             }
+        }
+
+        private void dateTimePickerCheckOut_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime chkIn = dateTimePickerCheckIn.Value;
+            DateTime chkOut = dateTimePickerCheckOut.Value;
+            int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
+            double roomPrice = getPrice();
+            txtPrice.Text = (daytotal * (int)roomPrice).ToString();
+        }
+
+        private void dateTimePickerCheckIn_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime chkIn = dateTimePickerCheckIn.Value;
+            DateTime chkOut = dateTimePickerCheckOut.Value;
+            int daytotal = (int)((chkOut - chkIn).TotalDays) + 1;
+            double roomPrice = getPrice();
+            txtPrice.Text = (daytotal * (int)roomPrice).ToString();
         }
     }
 }
