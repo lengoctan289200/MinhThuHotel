@@ -57,9 +57,9 @@ namespace MinhThuHotel
                     return Convert.ToInt32(result);
                 }
             }
-            catch (Exception ex)
+            catch (OleDbException ex)
             {
-
+                Console.WriteLine("UpdateForm _ getPrice() _ OleDbException: " + ex.Message);
             }
             finally
             {
